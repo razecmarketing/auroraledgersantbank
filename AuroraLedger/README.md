@@ -34,4 +34,4 @@ Aplicação demonstrativa de transações bancárias construída em Java 17 / Sp
 2. Métricas (OpenTelemetry) e alertas bancários.
 3. Ampliação do domínio para PIX, boletos e regras PJ.
 
-> Desenvolvido pelo time Aurora Ledger Engineering Team para demonstrar o que um engenheiro de software pode entregar em um ambiente bancário de alta exigência.
+> Desenvolvido por Cezi Cola Senior Software Engineer para demonstrar o que um engenheiro de software pode entregar em um ambiente bancário de alta exigência.
