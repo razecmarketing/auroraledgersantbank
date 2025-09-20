@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: aurora-ledger-banking-system
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  main:
+    banner-mode: console
+  # H2 Database Configuration (In-Memory for Development)
+  datasource:
+    url: jdbc:h2:mem:aurora_ledger_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        '[format_sql]': true
+        '[use_sql_comments]': true
+    show-sql: true
+    open-in-view: false
+  # H2 Console (for debugging)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  # MongoDB and Redis disabled for development
+  # data:
+  #   mongodb:
+  #     host: localhost
+  #     port: 27017
+  #     database: aurora_ledger_projections
+  #   redis:
+  #     host: localhost
+  #     port: 6379
+  #     database: 0
+  # cache:
+  #   type: simple  # Using simple cache instead of Redis
+
+server:
+  port: 8080
+
+# Application Information
+info:
+  app:
+    name: Aurora Ledger Banking API
+    description: Enterprise Banking System with CQRS Architecture
+    version: '@project.version@'
+  build:
+    artifact: '@project.artifactId@'
+    name: '@project.name@'
+    time: '@maven.build.timestamp@'
+    version: '@project.version@'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  info:
+    java:
+      enabled: true
+    env:
+      enabled: true
+
+# API Documentation
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui
+    tags-sorter: alpha
+
+# Logging Configuration
+logging:
+  level:
+    '[com.aurora.ledger]': INFO
+    '[org.springframework.security]': DEBUG
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"

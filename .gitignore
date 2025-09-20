@@ -1,0 +1,12 @@
+﻿# Build outputs
+AuroraLedger/target/
+*/target/
+# IDE
+.idea/
+.vscode/
+*.iml
+# OS
+*.log
+# Secrets
+CEZI-COLA-AGENT.md
+contexto.txt

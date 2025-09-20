@@ -1,0 +1,33 @@
+║════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║   ███████╗ █████╗ ███╗   ██╗████████╗ █████╗ ███╗   ██╗██████╗ ███████╗██████╗ ║
+║   ██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗██╔════╝██╔══██╗║
+║   ███████╗███████║██╔██╗ ██║   ██║   ███████║██╔██╗ ██║██║  ██║█████╗  ██████╔╝║
+║   ╚════██║██╔══██║██║╚██╗██║   ██║   ██╔══██║██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗║
+║   ███████║██║  ██║██║ ╚████║   ██║   ██║  ██║██║ ╚████║██████╔╝███████╗██║  ██║║
+║   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝║
+║                                                                                ║
+║                     AURORA LEDGER ENTERPRISE PLATFORM                          ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────────────────────┐
+│     SANTANDER DIGITAL CORE                         ENTERPRISE BANKING SOLUTION │
+├────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                │
+│      ARCHITECTURE                                    FEATURES                  │
+│     - Clean Architecture & CQRS                  - Real-time Transactions      │
+│     - Event-Driven Design                        - Multi-currency Support      │
+│     - Domain-Driven Development                  - Advanced Security (JWT)     │
+│     - Microservices Ready                        - CPF Validation & Audit      │
+│                                                  - Observability Ready         │
+│    TECHNOLOGY STACK                                                            │
+│     - Spring Boot 3.5.6 + Java 17                ENGINEERING                   │
+│     - PostgreSQL + MongoDB + Redis               - TDD & Clean Code            │
+│     - MapStruct + Lombok + OpenAPI               - SOLID Principles            │
+│     - Docker + Kubernetes Ready                  - Enterprise Patterns         │
+│                                                                                │
+├────────────────────────────────────────────────────────────────────────────────┤
+│  Technical Lead: Cezi Cola — Senior Software Engineer                          │
+│                                                                                │
+└────────────────────────────────────────────────────────────────────────────────┘
