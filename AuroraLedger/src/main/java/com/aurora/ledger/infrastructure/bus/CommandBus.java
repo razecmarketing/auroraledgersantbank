@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Command Bus Implementation
- * Following CQRS Write Side - routes commands to appropriate handlers
+ * Following CQRS Write Side  routes commands to appropriate handlers
  * Publishes generated events to Event Bus for Query Side consumption
  */
 @Component
@@ -106,3 +106,13 @@ public class CommandBus {
         return handlers.keySet();
     }
 }
+
+
+
+
+
+
+
+
+
+

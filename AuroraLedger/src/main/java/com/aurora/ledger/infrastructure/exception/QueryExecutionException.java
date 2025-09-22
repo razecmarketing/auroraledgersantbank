@@ -14,3 +14,13 @@ public class QueryExecutionException extends RuntimeException {
         super(message);
     }
 }
+
+
+
+
+
+
+
+
+
+

@@ -5,3 +5,13 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface AccountBalanceProjectionRepository extends MongoRepository<AccountBalanceProjectionDocument, String> {
 }
+
+
+
+
+
+
+
+
+
+

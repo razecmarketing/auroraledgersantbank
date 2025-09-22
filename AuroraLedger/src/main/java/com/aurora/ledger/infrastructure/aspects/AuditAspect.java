@@ -67,10 +67,10 @@ public class AuditAspect {
             MDC.put(EXECUTION_TIME, String.valueOf(executionTime));
             
             // Log with full context for audit purposes  
-            logger.error("Failed execution: {}.{} in {}ms - Error: {}", 
+            logger.error("Failed execution: {}.{} in {}ms  Error: {}", 
                 className, methodName, executionTime, ex.getMessage(), ex);
             
-            // Re-throw with enriched context for upstream handling
+            // Rethrow with enriched context for upstream handling
             AuditedOperationException enrichedException = new AuditedOperationException(
                 className, methodName, executionTime, ex.getMessage(), ex
             );
@@ -94,3 +94,13 @@ public class AuditAspect {
         return UUID.randomUUID().toString().substring(0, 8);
     }
 }
+
+
+
+
+
+
+
+
+
+

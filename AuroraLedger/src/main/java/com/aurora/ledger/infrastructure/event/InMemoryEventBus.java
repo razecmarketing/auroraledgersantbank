@@ -11,7 +11,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
- * In-Memory Event Bus Implementation
+ * InMemory Event Bus Implementation
  * Production systems should use Kafka, RabbitMQ, or similar
  * Supports both synchronous and asynchronous event processing
  */
@@ -89,7 +89,7 @@ public class InMemoryEventBus implements EventBus {
     private void processEvent(DomainEvent event, EventHandler<? extends DomainEvent> handler) {
         try {
             if (handler.isAsynchronous()) {
-                // Asynchronous processing for non-critical handlers
+                // Asynchronous processing for noncritical handlers
                 asyncExecutor.execute(() -> {
                     try {
                         ((EventHandler<DomainEvent>) handler).handle(event);
@@ -118,8 +118,18 @@ public class InMemoryEventBus implements EventBus {
      */
     public Map<String, Integer> getSubscriberStats() {
         Map<String, Integer> stats = new HashMap<>();
-        subscribers.forEach((eventType, handlers) -> 
+        subscribers.forEach((eventType, handlers) ->
             stats.put(eventType.getSimpleName(), handlers.size()));
         return stats;
     }
 }
+
+
+
+
+
+
+
+
+
+

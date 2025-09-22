@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * InMemoryAccountRepository
- * Simple thread-safe in-memory implementation for AccountRepository.
+ * Simple threadsafe inmemory implementation for AccountRepository.
  *
  * This adapter allows the application to boot and exercise domain logic
  * without a persistent storage for accounts. Suitable for dev/demo/tests.
@@ -67,4 +67,14 @@ public class InMemoryAccountRepository implements AccountRepository {
         .toList();
     }
 }
+
+
+
+
+
+
+
+
+
+
 

@@ -174,7 +174,7 @@ public class DuplicateDetectionEngine {
      * Validate Java class name conventions
      */
     private boolean isValidClassName(String className) {
-        return className.matches("^[A-Z][a-zA-Z0-9]*$") && 
+        return className.matches("^[AZ][azAZ09]*$") && 
                !className.contains("_") && 
                !className.toLowerCase().equals(className);
     }
@@ -190,7 +190,7 @@ public class DuplicateDetectionEngine {
         
         String[] parts = packageName.split("\\.");
         for (String part : parts) {
-            if (!part.matches("^[a-z][a-z0-9]*$")) {
+            if (!part.matches("^[az][az09]*$")) {
                 return false;
             }
         }
@@ -331,3 +331,13 @@ public class DuplicateDetectionEngine {
         return sb.toString();
     }
 }
+
+
+
+
+
+
+
+
+
+

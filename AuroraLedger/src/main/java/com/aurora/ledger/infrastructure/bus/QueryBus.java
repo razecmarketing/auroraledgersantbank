@@ -11,8 +11,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Query Bus Implementation
- * Following CQRS Read Side - routes queries to appropriate handlers
- * Pure functions - no side effects, only data retrieval
+ * Following CQRS Read Side  routes queries to appropriate handlers
+ * Pure functions  no side effects, only data retrieval
  */
 @Component
 public class QueryBus {
@@ -27,7 +27,7 @@ public class QueryBus {
     
     /**
      * Executes query and returns result
-     * Following Bertrand Meyer's Query principle - no side effects
+     * Following Bertrand Meyer's Query principle  no side effects
      */
     @SuppressWarnings("unchecked")
     public <R> R dispatch(Query<R> query) {
@@ -49,7 +49,7 @@ public class QueryBus {
             return result;
             
         } catch (Exception e) {
-            // Rethrow with rich context; avoid double-logging here
+            // Rethrow with rich context; avoid doublelogging here
             throw new QueryExecutionException(
                 "Failed to execute query '" + query.getClass().getSimpleName() + "' with id=" + query.getQueryId(), e
             );
@@ -98,3 +98,13 @@ public class QueryBus {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

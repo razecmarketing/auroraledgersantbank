@@ -34,7 +34,7 @@ public class JwtTokenManager {
         byte[] keyBytes = resolveSecretBytes();
 
         if (keyBytes.length < MIN_SECRET_LENGTH_BYTES) {
-            throw new IllegalStateException("JWT secret must be at least 512 bits (64 bytes) long. Configure property 'jwt.secret' with a Base64-encoded key.");
+            throw new IllegalStateException("JWT secret must be at least 512 bits (64 bytes) long. Configure property 'jwt.secret' with a Base64encoded key.");
         }
 
         return Keys.hmacShaKeyFor(keyBytes);
@@ -50,7 +50,7 @@ public class JwtTokenManager {
             }
             return decoded;
         } catch (IllegalArgumentException ex) {
-            logger.warn("Property 'jwt.secret' is not Base64 encoded. Falling back to UTF-8 bytes. Provide a Base64 encoded secret to avoid interpretation issues.");
+            logger.warn("Property 'jwt.secret' is not Base64 encoded. Falling back to UTF8 bytes. Provide a Base64 encoded secret to avoid interpretation issues.");
             return secret.getBytes(StandardCharsets.UTF_8);
         }
     }
@@ -140,3 +140,13 @@ public class JwtTokenManager {
         return TOKEN_TYPE + token;
     }
 }
+
+
+
+
+
+
+
+
+
+

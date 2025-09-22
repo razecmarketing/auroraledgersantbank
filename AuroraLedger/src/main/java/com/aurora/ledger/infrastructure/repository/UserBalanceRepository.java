@@ -70,3 +70,13 @@ public interface UserBalanceRepository extends JpaRepository<UserBalance, Long> 
     @Query("SELECT COALESCE(SUM(ub.negativeBalance), 0) FROM UserBalance ub WHERE ub.negativeBalance > 0")
     BigDecimal getTotalNegativeBalance();
 }
+
+
+
+
+
+
+
+
+
+

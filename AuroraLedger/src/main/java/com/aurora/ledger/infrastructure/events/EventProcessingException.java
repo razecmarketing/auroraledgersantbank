@@ -23,3 +23,13 @@ public class EventProcessingException extends RuntimeException {
         return eventId;
     }
 }
+
+
+
+
+
+
+
+
+
+

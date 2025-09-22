@@ -22,7 +22,7 @@ public class MongoRedisBalanceProjectionCache implements BalanceProjectionCache 
 
     private static final Logger logger = LoggerFactory.getLogger(MongoRedisBalanceProjectionCache.class);
     private static final String KEY_TEMPLATE = "aurora:balance:%s";
-    private static final DateTimeFormatter HISTORY_DATE_FORMAT = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    private static final DateTimeFormatter HISTORY_DATE_FORMAT = DateTimeFormatter.ofPattern("ddMMyyyy HH:mm:ss");
 
     private final StringRedisTemplate redisTemplate;
     private final ObjectMapper objectMapper;
@@ -187,4 +187,14 @@ public class MongoRedisBalanceProjectionCache implements BalanceProjectionCache 
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
 

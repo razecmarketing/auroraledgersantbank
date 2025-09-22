@@ -10,7 +10,7 @@ public class CommandExecutionException extends RuntimeException {
     private final String commandType;
     
     public CommandExecutionException(String commandId, String commandType, String message, Throwable cause) {
-        super(String.format("Command execution failed - ID: %s, Type: %s, Error: %s", 
+        super(String.format("Command execution failed  ID: %s, Type: %s, Error: %s", 
                           commandId, commandType, message), cause);
         this.commandId = commandId;
         this.commandType = commandType;
@@ -24,3 +24,13 @@ public class CommandExecutionException extends RuntimeException {
         return commandType;
     }
 }
+
+
+
+
+
+
+
+
+
+

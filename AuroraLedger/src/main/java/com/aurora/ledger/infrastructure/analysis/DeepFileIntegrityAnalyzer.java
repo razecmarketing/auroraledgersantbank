@@ -13,10 +13,10 @@ import java.util.*;
 /**
  * Aurora File System Deep Analysis Engine
  * Performs comprehensive analysis of all project files to detect:
- * - Empty files
- * - Malformed Java classes
- * - Incomplete implementations
- * - Missing critical content
+ *  Empty files
+ *  Malformed Java classes
+ *  Incomplete implementations
+ *  Missing critical content
  */
 @Component
 public class DeepFileIntegrityAnalyzer {
@@ -116,13 +116,13 @@ public class DeepFileIntegrityAnalyzer {
                                          content.contains("interface ") || 
                                          content.contains("enum ");
             
-            if (!hasClassDeclaration && !fileName.equals("package-info.java")) {
+            if (!hasClassDeclaration && !fileName.equals("packageinfo.java")) {
                 report.addMalformedFile(file.toString(), "Missing class/interface/enum declaration");
                 logger.warn("Java file without proper declaration: {}", file);
             }
             
             // Check for package declaration
-            if (!content.contains("package ") && !fileName.equals("module-info.java")) {
+            if (!content.contains("package ") && !fileName.equals("moduleinfo.java")) {
                 report.addIncompleteFile(file.toString(), "Missing package declaration");
             }
             
@@ -138,7 +138,7 @@ public class DeepFileIntegrityAnalyzer {
                 
             // Detect potential stub classes
             if (content.length() < 200 && hasClassDeclaration && !hasImports) {
-                report.addSuspiciousFile(file.toString(), "Very small class without imports - possibly incomplete");
+                report.addSuspiciousFile(file.toString(), "Very small class without imports  possibly incomplete");
             }
         }
 
@@ -228,12 +228,12 @@ public class DeepFileIntegrityAnalyzer {
         public String generateDetailedReport() {
             StringBuilder report = new StringBuilder();
             
-            report.append("AURORA LEDGER - FILE SYSTEM INTEGRITY ANALYSIS\n");
+            report.append("AURORA LEDGER  FILE SYSTEM INTEGRITY ANALYSIS\n");
             report.append("=" .repeat(60)).append("\n");
             report.append(String.format("Total files analyzed: %d%n", totalAnalyzedFiles));
             report.append(String.format("Analysis timestamp: %s%n%n", 
                 java.time.LocalDateTime.now().format(
-                    java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))));
+                    java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd HH:mm:ss"))));
             
             if (!criticalErrors.isEmpty()) {
                 report.append("CRITICAL ERRORS:\n");
@@ -250,28 +250,28 @@ public class DeepFileIntegrityAnalyzer {
             if (!malformedFiles.isEmpty()) {
                 report.append("MALFORMED FILES ").append("(").append(malformedFiles.size()).append("):\n");
                 malformedFiles.forEach(file -> report.append("  MALFORMED: ").append(file)
-                    .append(" - ").append(fileIssues.get(file)).append("\n"));
+                    .append("  ").append(fileIssues.get(file)).append("\n"));
                 report.append("\n");
             }
             
             if (!incompleteFiles.isEmpty()) {
                 report.append("INCOMPLETE FILES ").append("(").append(incompleteFiles.size()).append("):\n");
                 incompleteFiles.forEach(file -> report.append("  INCOMPLETE: ").append(file)
-                    .append(" - ").append(fileIssues.get(file)).append("\n"));
+                    .append("  ").append(fileIssues.get(file)).append("\n"));
                 report.append("\n");
             }
             
             if (!suspiciousFiles.isEmpty()) {
                 report.append("SUSPICIOUS PATTERNS ").append("(").append(suspiciousFiles.size()).append("):\n");
                 suspiciousFiles.forEach(file -> report.append("  SUSPICIOUS: ").append(file)
-                    .append(" - ").append(fileIssues.get(file)).append("\n"));
+                    .append("  ").append(fileIssues.get(file)).append("\n"));
                 report.append("\n");
             }
             
             if (!unreadableFiles.isEmpty()) {
                 report.append("UNREADABLE FILES ").append("(").append(unreadableFiles.size()).append("):\n");
                 unreadableFiles.forEach(file -> report.append("  UNREADABLE: ").append(file)
-                    .append(" - ").append(fileIssues.get(file)).append("\n"));
+                    .append("  ").append(fileIssues.get(file)).append("\n"));
                 report.append("\n");
             }
             
@@ -300,3 +300,13 @@ public class DeepFileIntegrityAnalyzer {
         public int getTotalAnalyzedFiles() { return totalAnalyzedFiles; }
     }
 }
+
+
+
+
+
+
+
+
+
+

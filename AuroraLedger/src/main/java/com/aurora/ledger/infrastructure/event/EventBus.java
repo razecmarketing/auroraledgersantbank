@@ -4,7 +4,7 @@ import com.aurora.ledger.domain.shared.DomainEvent;
 
 /**
  * Event Bus Interface
- * Following Event-Driven Architecture principles
+ * Following EventDriven Architecture principles
  * Decouples Command Side (Write) from Query Side (Read)
  */
 public interface EventBus {
@@ -43,3 +43,13 @@ public interface EventBus {
      */
     <T extends DomainEvent> void unsubscribe(Class<T> eventType, EventHandler<T> handler);
 }
+
+
+
+
+
+
+
+
+
+

@@ -58,3 +58,13 @@ public interface TransactionHistoryRepository extends JpaRepository<TransactionH
     List<TransactionHistory> findTopNByUserLogin(@Param("userLogin") String userLogin, 
                                                 org.springframework.data.domain.Pageable pageable);
 }
+
+
+
+
+
+
+
+
+
+

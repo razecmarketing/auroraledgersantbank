@@ -27,7 +27,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
         String jsonResponse = """
             {
                 "success": false,
-                "message": "Unauthorized access - valid JWT token required",
+                "message": "Unauthorized access  valid JWT token required",
                 "error": "UNAUTHORIZED",
                 "status": 401
             }
@@ -36,3 +36,13 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.getWriter().write(jsonResponse);
     }
 }
+
+
+
+
+
+
+
+
+
+

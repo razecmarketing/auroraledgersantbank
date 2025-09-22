@@ -5,13 +5,13 @@ import com.aurora.ledger.domain.shared.DomainEvent;
 /**
  * Event Handler Interface
  * Processes domain events for Query Side projections and reactions
- * Following Event-Driven Architecture and eventual consistency principles
+ * Following EventDriven Architecture and eventual consistency principles
  */
 public interface EventHandler<T extends DomainEvent> {
     
     /**
      * Handles domain event to update projections or trigger reactions
-     * Must be idempotent - handling same event multiple times should be safe
+     * Must be idempotent  handling same event multiple times should be safe
      * 
      * @param event Domain event to process
      */
@@ -38,3 +38,13 @@ public interface EventHandler<T extends DomainEvent> {
         return true;
     }
 }
+
+
+
+
+
+
+
+
+
+

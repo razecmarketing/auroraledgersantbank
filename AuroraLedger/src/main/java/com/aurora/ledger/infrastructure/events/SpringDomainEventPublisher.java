@@ -25,7 +25,7 @@ public class SpringDomainEventPublisher implements DomainEventPublisher {
     @Override
     public void publish(DomainEvent event) {
         if (event == null) return;
-        logger.debug("Publishing domain event: {} - correlation={}", event.getEventType(), event.getCorrelationId());
+        logger.debug("Publishing domain event: {}  correlation={}", event.getEventType(), event.getCorrelationId());
         publisher.publishEvent(event);
     }
 
@@ -35,3 +35,13 @@ public class SpringDomainEventPublisher implements DomainEventPublisher {
         events.forEach(this::publish);
     }
 }
+
+
+
+
+
+
+
+
+
+

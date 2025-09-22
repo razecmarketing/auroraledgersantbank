@@ -37,7 +37,7 @@ public class ProjectQualityController {
      */
     @GetMapping("/analyze")
     public ResponseEntity<Map<String, Object>> analyzeProject() {
-        logger.info("Project Quality Analysis - Starting comprehensive analysis");
+        logger.info("Project Quality Analysis  Starting comprehensive analysis");
         
         try {
             String projectRoot = System.getProperty(USER_DIR_PROPERTY);
@@ -65,12 +65,12 @@ public class ProjectQualityController {
             response.put("overallStatus", overallSuccess ? "CLEAN" : "ISSUES_DETECTED");
             
             if (!overallSuccess) {
-                logger.error("Project Quality Analysis - CRITICAL ISSUES DETECTED!");
+                logger.error("Project Quality Analysis  CRITICAL ISSUES DETECTED!");
                 if (logger.isErrorEnabled()) {
                     logger.error("Duplicate Report:\n{}", duplicateDetectionEngine.generateReport(duplicateReport));
                 }
             } else {
-                logger.info("Project Quality Analysis - All checks passed successfully!");
+                logger.info("Project Quality Analysis  All checks passed successfully!");
             }
             
             return ResponseEntity.ok(response);
@@ -155,3 +155,13 @@ public class ProjectQualityController {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

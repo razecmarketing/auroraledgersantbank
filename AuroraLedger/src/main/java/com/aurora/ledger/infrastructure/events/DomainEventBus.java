@@ -50,7 +50,7 @@ public class DomainEventBus {
     
     /**
      * Registers global event handler for all domain events.
-     * Useful for cross-cutting concerns like audit logging.
+     * Useful for crosscutting concerns like audit logging.
      */
     public void registerGlobalHandler(Consumer<DomainEvent> handler) {
         globalHandlers.add(handler);
@@ -62,7 +62,7 @@ public class DomainEventBus {
      */
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
     public void handleCommittedEvent(DomainEvent event) {
-        logger.info("Processing committed domain event: {} - Correlation: {}", 
+        logger.info("Processing committed domain event: {}  Correlation: {}", 
             event.getEventType(), event.getCorrelationId());
         
         // Process global handlers asynchronously
@@ -72,7 +72,7 @@ public class DomainEventBus {
                     handler.accept(event);
                 } catch (Exception ex) {
                     // Log the failure with full context
-                    logger.error("Global handler failed for event: {} - Error: {}", 
+                    logger.error("Global handler failed for event: {}  Error: {}", 
                         event.getEventType(), ex.getMessage(), ex);
                     
                     // Create enriched exception for monitoring
@@ -98,7 +98,17 @@ public class DomainEventBus {
      */
     @TransactionalEventListener(phase = TransactionPhase.AFTER_ROLLBACK)
     public void handleRollbackEvent(DomainEvent event) {
-        logger.warn("Transaction rolled back for event: {} - Correlation: {}", 
+        logger.warn("Transaction rolled back for event: {}  Correlation: {}", 
             event.getEventType(), event.getCorrelationId());
     }
 }
+
+
+
+
+
+
+
+
+
+

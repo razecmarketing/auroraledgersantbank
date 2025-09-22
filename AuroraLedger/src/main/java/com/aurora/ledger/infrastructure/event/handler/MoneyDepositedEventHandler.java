@@ -47,3 +47,13 @@ public class MoneyDepositedEventHandler implements EventHandler<MoneyDepositedEv
         return MoneyDepositedEvent.class;
     }
 }
+
+
+
+
+
+
+
+
+
+

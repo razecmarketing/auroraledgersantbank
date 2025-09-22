@@ -1,7 +1,7 @@
 package com.aurora.ledger.infrastructure.aspects;
 
 /**
- * Exception thrown when audit-wrapped operations fail.
+ * Exception thrown when auditwrapped operations fail.
  * Provides contextual information for debugging and monitoring.
  */
 public class AuditedOperationException extends RuntimeException {
@@ -31,3 +31,13 @@ public class AuditedOperationException extends RuntimeException {
         return executionTimeMs;
     }
 }
+
+
+
+
+
+
+
+
+
+
