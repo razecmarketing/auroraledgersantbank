@@ -8,7 +8,7 @@ package com.aurora.ledger.interfaces.rest.constants;
 public final class ApiResponseConstants {
     
     private ApiResponseConstants() {
-        // Utility class - prevent instantiation
+        // Utility class  prevent instantiation
     }
     
     // Response field names
@@ -43,3 +43,13 @@ public final class ApiResponseConstants {
     public static final String SUMMARY_QUERY_ERROR = "SUMMARY_QUERY_ERROR";
     public static final String BALANCE_QUERY_ERROR = "BALANCE_QUERY_ERROR";
 }
+
+
+
+
+
+
+
+
+
+

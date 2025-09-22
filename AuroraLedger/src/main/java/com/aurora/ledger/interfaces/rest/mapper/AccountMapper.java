@@ -46,6 +46,16 @@ public class AccountMapper {
         if (cpf == null || cpf.length() < 4) {
             return "***";
         }
-        return "***.***.***-" + cpf.substring(cpf.length() - 2);
+        return "***.***.***" + cpf.substring(cpf.length() - 2);
     }
 }
+
+
+
+
+
+
+
+
+
+

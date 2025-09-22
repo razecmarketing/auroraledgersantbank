@@ -22,57 +22,57 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Transaction Controller - The Financial Command Center
+ * Transaction Controller  The Financial Command Center
  * "Any fool can write code that a computer can understand. Good programmers write code 
- * that humans can understand." - Martin Fowler
+ * that humans can understand."  Martin Fowler
  * 
  * ARCHITECTURAL MASTERY (Greg Young + Uncle Bob):
- * This controller exemplifies CQRS at its finest - a clear separation between state-changing
- * commands and state-reading queries. This isn't just pattern application; it's a solution
+ * This controller exemplifies CQRS at its finest  a clear separation between statechanging
+ * commands and statereading queries. This isn't just pattern application; it's a solution
  * to the fundamental challenge of financial systems: how to maintain consistency while
  * achieving performance at scale.
  * 
  * Commands (POST operations) modify system state through the write model:
- * - Each command represents a business intention (deposit, payment)
- * - Commands generate domain events, creating an immutable audit trail
- * - State changes follow banking invariants (balance calculations, interest application)
+ *  Each command represents a business intention (deposit, payment)
+ *  Commands generate domain events, creating an immutable audit trail
+ *  State changes follow banking invariants (balance calculations, interest application)
  * 
  * Queries (GET operations) read optimized projections without side effects:
- * - Read models are eventually consistent with write model
- * - Queries never modify state, following Dijkstra's principle of program correctness
- * - Response times are predictable O(1) through denormalized projections
+ *  Read models are eventually consistent with write model
+ *  Queries never modify state, following Dijkstra's principle of program correctness
+ *  Response times are predictable O(1) through denormalized projections
  * 
- * FINANCIAL DOMAIN EXPERTISE (Eric Evans + Domain-Driven Design):
+ * FINANCIAL DOMAIN EXPERTISE (Eric Evans + DomainDriven Design):
  * Every endpoint represents a ubiquitous language concept from banking:
- * - Deposit: Money addition with regulatory compliance tracking
- * - Payment: Bill settlement with overdraft protection and interest calculation
- * - Balance: Real-time financial position with complete transaction history
+ *  Deposit: Money addition with regulatory compliance tracking
+ *  Payment: Bill settlement with overdraft protection and interest calculation
+ *  Balance: Realtime financial position with complete transaction history
  * 
- * The 1.02% interest logic isn't arbitrary - it reflects real banking mathematics
+ * The 1.02% interest logic isn't arbitrary  it reflects real banking mathematics
  * where negative balances incur charges upon next positive transaction.
  * 
  * SYSTEMS RELIABILITY (Jeff Dean + Leslie Lamport):
- * - Idempotent operations prevent double-processing of financial transactions
- * - Correlation IDs enable distributed tracing across microservices
- * - Graceful degradation ensures service availability during high load
- * - Circuit breakers protect against cascading failures
+ *  Idempotent operations prevent doubleprocessing of financial transactions
+ *  Correlation IDs enable distributed tracing across microservices
+ *  Graceful degradation ensures service availability during high load
+ *  Circuit breakers protect against cascading failures
  * 
  * SECURITY CONSCIOUSNESS (Torvalds + Lamport):
- * - JWT authentication ensures user identity verification
- * - Input validation prevents injection attacks on financial data
- * - Structured logging avoids sensitive data exposure
- * - Rate limiting protects against denial-of-service attacks
+ *  JWT authentication ensures user identity verification
+ *  Input validation prevents injection attacks on financial data
+ *  Structured logging avoids sensitive data exposure
+ *  Rate limiting protects against denialofservice attacks
  * 
  * This controller demonstrates how theoretical computer science principles
  * solve practical banking challenges at enterprise scale.
  * 
- * @author Aurora Ledger Engineering Team
+
  * @pattern CQRS + Event Sourcing + RESTful Architecture
  * @compliance PCI DSS + SOX + Basel III + LGPD
  * @performance 99.99% uptime, <100ms response time for queries
  */
 @RestController
-@RequestMapping("/api/v1/transactions")
+@RequestMapping("/api/transactions")
 @Tag(name = "Banking Transactions", description = "Deposit, payment, and balance operations")
 @SecurityRequirement(name = "JWT Authentication")
 public class TransactionController {
@@ -89,36 +89,36 @@ public class TransactionController {
     }
     
     /**
-     * Deposit Money - The Command Pattern in Financial Action
+     * Deposit Money  The Command Pattern in Financial Action
      * "Correctness is clearly the prime quality. If a system does not do what it is 
-     * supposed to do, then everything else about it matters little." - Bertrand Meyer
+     * supposed to do, then everything else about it matters little."  Bertrand Meyer
      * 
      * COMMAND RESPONSIBILITY (CQRS Write Side):
-     * This endpoint embodies the Command side of CQRS - it changes system state
+     * This endpoint embodies the Command side of CQRS  it changes system state
      * and generates domain events. Following Dijkstra's principle that state changes
      * should be explicit and verifiable, every deposit creates an immutable record
      * in our event store.
      * 
      * FINANCIAL INVARIANT PRESERVATION:
-     * - Deposit amounts must be positive (business rule enforcement)
-     * - Balance calculations follow double-entry bookkeeping principles
-     * - Negative balance interest (1.02%) applies mathematical precision
-     * - Transaction atomicity prevents partial state updates
+     *  Deposit amounts must be positive (business rule enforcement)
+     *  Balance calculations follow doubleentry bookkeeping principles
+     *  Negative balance interest (1.02%) applies mathematical precision
+     *  Transaction atomicity prevents partial state updates
      * 
      * DOMAIN EVENT GENERATION:
      * Each successful deposit emits a MoneyDepositedEvent containing:
-     * - Temporal ordering for event replay capability
-     * - Correlation ID for distributed system tracing
-     * - User context for audit trail compliance
-     * - Amount precision to prevent rounding errors
+     *  Temporal ordering for event replay capability
+     *  Correlation ID for distributed system tracing
+     *  User context for audit trail compliance
+     *  Amount precision to prevent rounding errors
      * 
      * ERROR HANDLING PHILOSOPHY (Torvalds + Uncle Bob):
-     * Failures are not exceptional - they're expected in financial systems.
+     * Failures are not exceptional  they're expected in financial systems.
      * Our error responses provide actionable information without exposing
      * internal system details that could compromise security.
      * 
      * @param request Deposit command with amount validation
-     * @param authentication JWT-verified user context
+     * @param authentication JWTverified user context
      * @return Success confirmation or detailed error information
      * @complexity O(1) write operation, O(log n) event persistence
      * @idempotency Safe for retry through correlation ID deduplication
@@ -162,7 +162,7 @@ public class TransactionController {
     }
     
     /**
-     * Pay Bill - CQRS Command Side  
+     * Pay Bill  CQRS Command Side  
      * POST operation to modify account state with negativation support
      */
     @PostMapping("/payment")
@@ -207,7 +207,7 @@ public class TransactionController {
     }
     
     /**
-     * Get Balance with History - CQRS Query Side
+     * Get Balance with History  CQRS Query Side
      * GET operation returns data, never modifies state
      * Returns exact JSON format from requirements
      */
@@ -243,7 +243,7 @@ public class TransactionController {
     }
     
     /**
-     * Get Transaction History - CQRS Query Side
+     * Get Transaction History  CQRS Query Side
      * GET operation for detailed transaction history with filters
      */
     @GetMapping("/history")
@@ -296,7 +296,7 @@ public class TransactionController {
     }
 
     /**
-     * Get Account Summary - CQRS Query Side
+     * Get Account Summary  CQRS Query Side
      * GET operation for account overview information
      */
     @GetMapping("/summary")
@@ -352,12 +352,12 @@ public class TransactionController {
      *     {
      *       "type": "deposito|saque",
      *       "valor": "xx.xx", 
-     *       "data": "dd-MM-yyyy HH:mm:ss"
+     *       "data": "ddMMyyyy HH:mm:ss"
      *     }
      *   ]
      * }
      */
-    @GetMapping("/balance-required-format")
+    @GetMapping("/balancerequiredformat")
     @Operation(
         summary = "Get balance in required format",
         description = "Returns balance and history in exact format specified in requirements"
@@ -427,3 +427,13 @@ public class TransactionController {
         public String billDescription;
     }
 }
+
+
+
+
+
+
+
+
+
+

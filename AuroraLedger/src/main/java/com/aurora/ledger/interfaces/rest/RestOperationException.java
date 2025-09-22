@@ -2,7 +2,7 @@ package com.aurora.ledger.interfaces.rest;
 
 /**
  * Exception thrown when REST operations fail at controller level.
- * Provides HTTP-specific context and correlation tracking.
+ * Provides HTTPspecific context and correlation tracking.
  */
 public class RestOperationException extends RuntimeException {
     
@@ -31,3 +31,13 @@ public class RestOperationException extends RuntimeException {
         return httpStatus;
     }
 }
+
+
+
+
+
+
+
+
+
+

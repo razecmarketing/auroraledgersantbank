@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 
 /**
- * CreateAccountRequest - Banking-grade API contract
+ * CreateAccountRequest  Bankinggrade API contract
  * Demonstrates enterprise validation and documentation
  * 
  * 
@@ -17,9 +17,9 @@ import java.math.BigDecimal;
 public class CreateAccountRequest {
     
     @NotBlank(message = "Customer CPF is required")
-    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}|\\d{11}", 
-             message = "CPF must be in format 000.000.000-00 or 11 digits")
-    @Schema(description = "Customer CPF", example = "123.456.789-01")
+    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}\\d{2}|\\d{11}", 
+             message = "CPF must be in format 000.000.00000 or 11 digits")
+    @Schema(description = "Customer CPF", example = "123.456.78901")
     private String customerCpf;
     
     @NotBlank(message = "Account type is required")
@@ -44,3 +44,13 @@ public class CreateAccountRequest {
             example = "BRL")
     private String currencyCode;
 }
+
+
+
+
+
+
+
+
+
+

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * AccountResponse - Clean API response with proper encapsulation
+ * AccountResponse  Clean API response with proper encapsulation
  * Never exposes internal domain structure
  * 
  * 
@@ -18,10 +18,10 @@ import java.time.LocalDateTime;
 @Schema(description = "Banking account information")
 public class AccountResponse {
     
-    @Schema(description = "Unique account identifier", example = "acc-12345-67890")
+    @Schema(description = "Unique account identifier", example = "acc1234567890")
     private String accountId;
     
-    @Schema(description = "Account number for customer operations", example = "1234-5678-90")
+    @Schema(description = "Account number for customer operations", example = "1234567890")
     private String accountNumber;
     
     @Schema(description = "Account type", example = "CHECKING")
@@ -43,6 +43,16 @@ public class AccountResponse {
     private LocalDateTime updatedAt;
     
     // Customer data is intentionally masked for privacy
-    @Schema(description = "Masked customer identifier", example = "***.***.***-01")
+    @Schema(description = "Masked customer identifier", example = "***.***.***01")
     private String maskedCustomerCpf;
 }
+
+
+
+
+
+
+
+
+
+

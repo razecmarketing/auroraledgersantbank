@@ -27,11 +27,11 @@ import jakarta.validation.Valid;
 import java.util.UUID;
 
 /**
- * AccountController - Banking API that will impress any fintech director
+ * AccountController  Banking API that will impress any fintech director
  * 
  * Features that demonstrate enterprise excellence:
  * 1. OpenAPI 3.0 documentation
- * 2. Security-first design with JWT
+ * 2. Securityfirst design with JWT
  * 3. Correlation ID tracking
  * 4. Input validation
  * 5. Error handling
@@ -40,7 +40,7 @@ import java.util.UUID;
  * 
  */
 @RestController
-@RequestMapping("/api/v1/accounts")
+@RequestMapping("/api/accounts")
 @RequiredArgsConstructor
 @Validated
 @Slf4j
@@ -54,7 +54,7 @@ public class AccountController {
     @PostMapping
     @Operation(
         summary = "Create Banking Account",
-        description = "Creates a new banking account with double-entry bookkeeping and full audit trail",
+        description = "Creates a new banking account with doubleentry bookkeeping and full audit trail",
         responses = {
             @ApiResponse(
                 responseCode = "201", 
@@ -69,14 +69,14 @@ public class AccountController {
     public ResponseEntity<AccountResponse> createAccount(
             @Valid @RequestBody CreateAccountRequest request,
             @Parameter(hidden = true) @AuthenticationPrincipal UserDetails userDetails,
-            @RequestHeader(value = "X-Correlation-ID", required = false) String correlationId) {
+            @RequestHeader(value = "XCorrelationID", required = false) String correlationId) {
         
         // Generate correlation ID if not provided (distributed tracing)
         if (correlationId == null || correlationId.isBlank()) {
             correlationId = UUID.randomUUID().toString();
         }
         
-        log.info("Creating account request received - Type: {}, Currency: {}, Correlation: {}", 
+        log.info("Creating account request received  Type: {}, Currency: {}, Correlation: {}", 
                 request.getAccountType(), request.getCurrencyCode(), correlationId);
         
         try {
@@ -96,16 +96,16 @@ public class AccountController {
             // Transform Domain object to REST response
             AccountResponse response = accountMapper.toResponse(createdAccount);
             
-            log.info("Account created successfully - Number: {}, Correlation: {}", 
+            log.info("Account created successfully  Number: {}, Correlation: {}", 
                     createdAccount.getAccountNumber(), correlationId);
             
             return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .header("X-Correlation-ID", correlationId)
+                .header("XCorrelationID", correlationId)
                 .body(response);
                 
         } catch (Exception e) {
-            log.error("Error creating account - Correlation: {}, Error: {}", 
+            log.error("Error creating account  Correlation: {}, Error: {}", 
                     correlationId, e.getMessage(), e);
                     
             throw new RestOperationException(
@@ -125,13 +125,13 @@ public class AccountController {
 )
 public ResponseEntity<AccountResponse> getAccount(
         @PathVariable String accountNumber,
-        @RequestHeader(value = "X-Correlation-ID", required = false) String correlationId) {
+        @RequestHeader(value = "XCorrelationID", required = false) String correlationId) {
 
     final String resolvedCorrelationId = (correlationId == null || correlationId.isBlank())
         ? UUID.randomUUID().toString()
         : correlationId;
 
-    log.info("Getting account details - Account: {}, Correlation: {}",
+    log.info("Getting account details  Account: {}, Correlation: {}",
             accountNumber, resolvedCorrelationId);
     try {
         return accountService.findByAccountNumber(accountNumber)
@@ -139,24 +139,24 @@ public ResponseEntity<AccountResponse> getAccount(
                 AccountResponse response = accountMapper.toResponse(account);
                 return ResponseEntity
                     .ok()
-                    .header("X-Correlation-ID", resolvedCorrelationId)
+                    .header("XCorrelationID", resolvedCorrelationId)
                     .body(response);
             })
             .orElseGet(() -> {
-                log.warn("Account not found - Account: {}, Correlation: {}", accountNumber, resolvedCorrelationId);
+                log.warn("Account not found  Account: {}, Correlation: {}", accountNumber, resolvedCorrelationId);
                 return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
-                    .header("X-Correlation-ID", resolvedCorrelationId)
+                    .header("XCorrelationID", resolvedCorrelationId)
                     .build();
             });
     } catch (IllegalArgumentException ex) {
-        log.warn("Invalid account number provided - Account: {}, Correlation: {}", accountNumber, resolvedCorrelationId, ex);
+        log.warn("Invalid account number provided  Account: {}, Correlation: {}", accountNumber, resolvedCorrelationId, ex);
         return ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
-            .header("X-Correlation-ID", resolvedCorrelationId)
+            .header("XCorrelationID", resolvedCorrelationId)
             .build();
     } catch (Exception e) {
-        log.error("Error retrieving account - Account: {}, Correlation: {}", accountNumber, resolvedCorrelationId, e);
+        log.error("Error retrieving account  Account: {}, Correlation: {}", accountNumber, resolvedCorrelationId, e);
         throw new RestOperationException(
             "GET_ACCOUNT",
             resolvedCorrelationId,
@@ -167,3 +167,13 @@ public ResponseEntity<AccountResponse> getAccount(
     }
 }
 }
+
+
+
+
+
+
+
+
+
+

@@ -19,22 +19,22 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Authentication Controller - User Interface Layer
+ * Authentication Controller  User Interface Layer
  * 
  * Handles user registration and authentication operations following Clean Architecture principles.
  * Implements Uncle Bob's Dependency Rule: dependencies point inward toward business logic.
  * 
  * ARCHITECTURAL PATTERNS APPLIED:
- * - Clean Architecture (Uncle Bob): Controllers are adapters in the interface layer
- * - Command Query Separation (Bertrand Meyer): Separate write operations (register) from read operations
- * - Domain-Driven Design (Eric Evans): Uses domain objects and ubiquitous language
+ *  Clean Architecture (Uncle Bob): Controllers are adapters in the interface layer
+ *  Command Query Separation (Bertrand Meyer): Separate write operations (register) from read operations
+ *  DomainDriven Design (Eric Evans): Uses domain objects and ubiquitous language
  * 
  * SECURITY PRINCIPLES (Liskov Substitution + Information Hiding):
- * - JWT token generation abstracted through interface
- * - Password handling follows cryptographic best practices
- * - Input validation prevents injection attacks
+ *  JWT token generation abstracted through interface
+ *  Password handling follows cryptographic best practices
+ *  Input validation prevents injection attacks
  * 
- * @author Aurora Ledger Engineering Team
+
  * @pattern Clean Architecture Interface Adapter
  * @layer Presentation/Interface Layer
  * @dependencies Domain Layer (User entities), Application Layer (UserService)
@@ -214,3 +214,13 @@ public class AuthController {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
