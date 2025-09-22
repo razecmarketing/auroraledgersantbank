@@ -13,10 +13,9 @@
 
 | Component | Technology | Purpose | Compliance |
 |-----------|------------|---------|------------|
-| **Core Engine** | Java 17 + Spring Boot 3.2.x | Transaction Processing | SOX, Basel III |
+| **Core Engine** | Java 17.0.16 + Spring Boot 3.5.6 | High-Performance Transaction Processing | SOX, Basel III |
 | **Security Layer** | JWT + BCrypt + Spring Security | Authentication & Authorization | PCI DSS Level 1 |
 | **Data Persistence** | JPA/Hibernate + H2/PostgreSQL | ACID Transaction Management | GDPR, LGPD |
-| **Frontend Interface** | Angular 18 + TypeScript | Modern Banking UX | WCAG 2.1 AA |
 | **Event Architecture** | CQRS + Domain Events | Audit Trail & Compliance | SOX, MiFID II |
 | **Observability** | Micrometer + Prometheus + Grafana | Real-time Monitoring | Operational Excellence |
 
@@ -25,10 +24,9 @@
 ## Quick Start Guide
 
 ### Prerequisites
-- **Java Development Kit**: OpenJDK 17 or later
-- **Apache Maven**: 3.9.x or later
-- **Node.js**: 18.x LTS (for frontend development)
-- **Docker**: 24.x (for observability stack)
+- **Java Development Kit**: OpenJDK 17.0.16+ LTS (Microsoft Build 11926163)
+- **Apache Maven**: 3.9.6 (Dependency Management & Build Automation)
+- **Docker**: 28.4.0 (Container Orchestration & Infrastructure)
 
 ### Production Deployment
 ```bash
@@ -138,14 +136,15 @@ The system follows hexagonal architecture principles ensuring separation of conc
 
 | Layer | Framework/Tool | Version | Purpose |
 |-------|---------------|---------|---------|
-| **Backend** | Spring Boot | 3.2.x | Enterprise Java Platform |
-| **Security** | Spring Security + JWT | 6.2.x | Authentication & Authorization |
-| **Persistence** | JPA/Hibernate | 6.4.x | ORM and Transaction Management |
-| **Database** | H2 (Dev) / PostgreSQL (Prod) | Latest | ACID Compliant Storage |
-| **Frontend** | Angular | 18.x | Modern Web Application |
-| **Build** | Maven | 3.9.x | Dependency Management |
-| **Testing** | JUnit 5 + TestContainers | Latest | Comprehensive Test Coverage |
-| **Monitoring** | Micrometer + Prometheus | Latest | Operational Observability |
+| **Backend** | Spring Boot | 3.5.6 | Enterprise Java Platform |
+| **Security** | Spring Security + JWT | 6.4.x + JJWT 0.12.6 | Authentication & Authorization |
+| **Persistence** | JPA/Hibernate | 6.6.x | ORM and Transaction Management |
+| **Database** | H2 (Dev) / PostgreSQL (Prod) | 2.2.224 / 16.x | ACID Compliant Storage |
+| **Build** | Maven | 3.9.6 | Dependency Management |
+| **Testing** | JUnit 5 + TestContainers | 5.11.x + 1.19.8 | Comprehensive Test Coverage |
+| **Monitoring** | Micrometer + Prometheus | 1.13.x + 2.54.x | Operational Observability |
+| **Containerization** | Docker + Docker Compose | 28.4.0 | Infrastructure Orchestration |
+| **Caching** | Redis + Caffeine | 7.4.x + 3.1.8 | High-Performance Caching |
 
 
 
