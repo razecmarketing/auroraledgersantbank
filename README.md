@@ -1,7 +1,6 @@
 # Aurora Ledger - Enterprise Banking Platform
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/razecmarketing/auroraledgersantbank)
-[![Coverage](https://img.shields.io/badge/coverage-98%25-brightgreen.svg)](https://github.com/razecmarketing/auroraledgersantbank)
 [![Security](https://img.shields.io/badge/security-PCI%20DSS-blue.svg)](https://github.com/razecmarketing/auroraledgersantbank)
 [![License](https://img.shields.io/badge/license-Enterprise-red.svg)](https://github.com/razecmarketing/auroraledgersantbank)
 
@@ -139,7 +138,7 @@ The system follows hexagonal architecture principles ensuring separation of conc
 | **Database** | H2 (Dev) / PostgreSQL (Prod) | 2.2.224 / 16.x | ACID Compliant Storage |
 | **Build** | Maven | 3.9.6 | Dependency Management |
 | **Testing** | JUnit 5 + TestContainers | 5.11.x + 1.19.8 | Comprehensive Test Coverage |
-| **Monitoring** | Prometheus + Grafana + Micrometer | 2.54.x + 11.x + 1.13.x | Enterprise Observability Stack |
+| **Monitoring** | Prometheus + Grafana + Micrometer | 2.47.x + 10.1.x + 1.13.x | Enterprise Observability Stack |
 | **Exporters** | Redis/MongoDB/Kafka Exporters | 1.61.0 / 0.40.0 / 1.7.0 | Infra metrics collection |
 | **Message Broker** | Apache Kafka + Zookeeper | 7.4.x + 3.8.x | Event Streaming & Processing |
 | **Event Store** | MongoDB | 7.x | CQRS Event Persistence |
@@ -185,10 +184,10 @@ public class DepositCommandHandler {
 ### Security & Data Protection Implementation
 
 #### Authentication Security Layer
-- **JWT Tokens**: RS256 algorithm with 15-minute expiration
+- **JWT Tokens**: HS512 algorithm with 24-hour expiration
 - **Password Hashing**: BCrypt with cost factor 12 (industry standard)
 - **Session Management**: Stateless with automatic token refresh
-- **Rate Limiting**: 100 requests/minute per user (DDoS protection)
+- **Input Validation**: Comprehensive request validation and sanitization
 
 #### Data Privacy (LGPD Compliance)
 ```java
@@ -246,9 +245,9 @@ Content-Type: application/json
 
 Response: 200 OK
 {
-  "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9...",
   "tokenType": "Bearer",
-  "expiresIn": 900,
+  "expiresIn": 86400,
   "refreshToken": "refresh-token-uuid",
   "userInfo": {
     "login": "joao.silva.santos",
@@ -384,13 +383,13 @@ mvn clean test -Dtest=**/*SecurityTest
 
 ### Test Coverage Metrics
 
-| Test Category | Coverage | Test Count | Purpose |
-|---------------|----------|------------|---------|
-| **Unit Tests** | 94% | 180+ | Domain logic validation |
-| **Integration Tests** | 87% | 45+ | End-to-end workflow verification |
-| **Security Tests** | 92% | 30+ | Authentication & authorization |
-| **Performance Tests** | 85% | 15+ | Load testing & optimization |
-| **Contract Tests** | 90% | 25+ | API specification compliance |
+The application includes comprehensive test suites with focus on banking transaction correctness:
+
+| Test Category | Purpose | Coverage Focus |
+|---------------|---------|----------------|
+| **Unit Tests** | Domain logic validation | Core banking operations |
+| **Integration Tests** | End-to-end workflow verification | Transaction flows |
+| **Security Tests** | Authentication & authorization | JWT and access control |
 
 ### Test Categories Implementation
 
@@ -447,20 +446,23 @@ class SecurityComplianceTest {
 
 ### Performance Testing Results
 
-| Operation | Response Time (P95) | Throughput | Memory Usage |
-|-----------|-------------------|------------|--------------|
-| **User Login** | < 150ms | 1000 req/sec | 45MB heap |
-| **Balance Query** | < 50ms | 2000 req/sec | 30MB heap |
-| **Deposit** | < 200ms | 800 req/sec | 55MB heap |
-| **Payment** | < 300ms | 600 req/sec | 60MB heap |
+The system demonstrates solid performance characteristics for banking operations:
+
+| Operation | Response Time Target | Notes |
+|-----------|---------------------|-------|
+| **User Login** | < 200ms | JWT generation included |
+| **Balance Query** | < 100ms | Cached response optimization |
+| **Deposit** | < 300ms | Database persistence + audit |
+| **Payment** | < 400ms | Interest calculation + events |
 
 ### Continuous Quality Gates
 
-- **SonarQube Quality Gate**: 95%+ code coverage, zero critical vulnerabilities
-- **OWASP Dependency Check**: No high-severity vulnerabilities
-- **Maven Failsafe**: All integration tests must pass
-- **JaCoCo Coverage**: Minimum 85% line coverage enforced
-- **PMD/SpotBugs**: Zero high-priority code quality issues
+The project implements comprehensive quality assurance practices:
+
+- **Maven Build**: All compilation and packaging steps automated
+- **Unit Testing**: Domain logic and business rules validation
+- **Integration Testing**: Complete transaction workflow verification
+- **Security Testing**: Authentication and authorization validation
 
 
 
@@ -536,16 +538,16 @@ Pre-configured dashboards for different stakeholder perspectives:
 
 ### Alerting & Incident Management
 
-#### Critical Alerts (PagerDuty Integration)
+#### Critical Alerts (Incident Management)
 ```yaml
 - Transaction failure rate > 1%
-- API response time > 500ms (P95)
-- Database connection pool exhaustion
+- API response time > 500ms
+- Database connection issues
 - Security breach detection
-- Compliance audit failures
+- System downtime incidents
 ```
 
-#### Warning Alerts (Slack Integration)
+#### Warning Alerts (Operational Monitoring)
 ```yaml
 - Memory usage > 80%
 - Error rate > 0.5%
@@ -650,38 +652,29 @@ services:
 
 ### Code Quality & Security Standards
 
-#### Pre-commit Hooks (Husky Integration)
+#### Code Quality Standards
+
+The codebase follows established Java and Spring Boot best practices:
+
 ```bash
-# Automated quality checks before commit
+# Automated quality checks available
 - Checkstyle validation (Google Java Style)
-- PMD static analysis  
-- SpotBugs security vulnerability detection
-- OWASP dependency vulnerability scan
-- Unit test execution (fast subset)
-- SonarQube quality gate validation
+- Maven compilation and packaging
+- Unit and integration test execution
+- Security configuration validation
 ```
 
-#### Continuous Integration Pipeline
-```yaml
-# GitHub Actions workflow
-name: Aurora Ledger CI/CD
-on: [push, pull_request]
+#### Development Pipeline
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Security scan
-        run: mvn org.owasp:dependency-check-maven:check
-      
-      - name: Quality gate
-        run: mvn sonar:sonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-      
-      - name: Integration tests
-        run: mvn verify -Pfailsafe
-      
-      - name: Performance tests
-        run: mvn gatling:test -Pperformance
+The development workflow supports rapid iteration and quality assurance:
+
+```yaml
+# Build and deployment process
+build:
+  - Maven compilation and packaging
+  - Unit test execution and validation
+  - Docker image generation
+  - Integration test verification
 ```
 
 ## Architectural Decision Records (ADRs)
@@ -783,16 +776,16 @@ spec:
 ### Return on Investment (ROI) Analysis
 
 #### Cost Savings
-- **Reduced Development Time**: Clean architecture and comprehensive testing reduce bug fixes by 75%
-- **Lower Operational Costs**: Automated monitoring and alerting reduce manual intervention by 60%
-- **Compliance Efficiency**: Automated audit trails reduce compliance officer workload by 40%
-- **Infrastructure Optimization**: Cloud-native design reduces hardware costs by 50%
+- **Development Efficiency**: Clean architecture and comprehensive testing reduce debugging time significantly
+- **Operational Simplicity**: Automated monitoring and alerting reduce manual intervention needs
+- **Compliance Readiness**: Automated audit trails support regulatory requirements efficiently
+- **Infrastructure Optimization**: Cloud-native design enables flexible deployment and scaling
 
 #### Revenue Enhancement
-- **Faster Time-to-Market**: Modular architecture enables new feature deployment in weeks, not months
-- **Improved Customer Experience**: Sub-200ms response times increase customer satisfaction and retention
-- **Regulatory Confidence**: Comprehensive compliance framework enables expansion into new markets
-- **Scalability Foundation**: Architecture supports 10x user growth without major rewrites
+- **Faster Development Cycles**: Modular architecture enables rapid feature development and deployment
+- **Enhanced User Experience**: Optimized response times improve customer satisfaction and engagement
+- **Regulatory Confidence**: Comprehensive compliance framework supports business expansion opportunities
+- **Scalable Foundation**: Architecture designed to support significant user growth without major rewrites
 
 ### Competitive Advantages
 
