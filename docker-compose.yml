@@ -150,6 +150,57 @@ services:
     restart: unless-stopped
 
   # ==========================================
+  # Redis Exporter - Prometheus Metrics
+  # ==========================================
+  redis-exporter:
+    image: oliver006/redis_exporter:v1.61.0
+    container_name: aurora-redis-exporter
+    depends_on:
+      - redis
+    environment:
+      - REDIS_ADDR=redis://redis:6379
+      - REDIS_PASSWORD=aurora123
+    ports:
+      - "9121:9121"
+    networks:
+      - aurora-network
+    restart: unless-stopped
+
+  # ==========================================
+  # MongoDB Exporter - Prometheus Metrics
+  # ==========================================
+  mongodb-exporter:
+    image: percona/mongodb_exporter:0.40.0
+    container_name: aurora-mongodb-exporter
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_URI=mongodb://root:aurora123@mongodb:27017/admin
+    command:
+      - --compatible-mode
+    ports:
+      - "9216:9216"
+    networks:
+      - aurora-network
+    restart: unless-stopped
+
+  # ==========================================
+  # Kafka Exporter - Prometheus Metrics
+  # ==========================================
+  kafka-exporter:
+    image: danielqsj/kafka-exporter:v1.7.0
+    container_name: aurora-kafka-exporter
+    depends_on:
+      - kafka
+    command:
+      - --kafka.server=kafka:29092
+    ports:
+      - "9308:9308"
+    networks:
+      - aurora-network
+    restart: unless-stopped
+
+  # ==========================================
   # Spring Boot Backend - Enhanced with Observability
   # ==========================================
   # app-backend:

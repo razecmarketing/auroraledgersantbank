@@ -10,7 +10,10 @@ scrape_configs:
   # Aurora Ledger Backend - Spring Boot Actuator
   - job_name: 'aurora-backend'
     static_configs:
-      - targets: ['app-backend:8080']
+      # If backend runs inside Docker Compose, use the service name:
+      # - targets: ['app-backend:8080']
+      # If backend runs on the Windows host, use host.docker.internal:
+      - targets: ['host.docker.internal:8080']
     metrics_path: '/actuator/prometheus'
     scrape_interval: 10s
     scrape_timeout: 5s
@@ -20,20 +23,20 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  # Kafka Metrics
-  - job_name: 'kafka'
+  # Kafka Exporter Metrics
+  - job_name: 'kafka-exporter'
     static_configs:
-      - targets: ['kafka:9092']
+      - targets: ['kafka-exporter:9308']
     scrape_interval: 30s
 
-  # Redis Metrics (via redis_exporter if needed)
-  - job_name: 'redis'
+  # Redis Exporter Metrics
+  - job_name: 'redis-exporter'
     static_configs:
-      - targets: ['redis:6379']
+      - targets: ['redis-exporter:9121']
     scrape_interval: 30s
 
-  # MongoDB Metrics (via mongodb_exporter if needed)
-  - job_name: 'mongodb'
+  # MongoDB Exporter Metrics
+  - job_name: 'mongodb-exporter'
     static_configs:
-      - targets: ['mongodb:27017']
+      - targets: ['mongodb-exporter:9216']
     scrape_interval: 30s

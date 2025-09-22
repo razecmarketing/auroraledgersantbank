@@ -56,7 +56,7 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 | Service | URL | Purpose |
 |---------|-----|---------|
 | **Main Application** | http://localhost:8080 | Banking Interface |
-| **API Documentation** | http://localhost:8080/swagger-ui.html | REST API Specs |
+| **API Documentation** | http://localhost:8080/swagger-ui | REST API Specs |
 | **H2 Database Console** | http://localhost:8080/h2-console | Database Management |
 | **Actuator Health** | http://localhost:8080/actuator/health | System Health Check |
 | **Prometheus Metrics** | http://localhost:9090 | Performance Monitoring |
@@ -140,6 +140,7 @@ The system follows hexagonal architecture principles ensuring separation of conc
 | **Build** | Maven | 3.9.6 | Dependency Management |
 | **Testing** | JUnit 5 + TestContainers | 5.11.x + 1.19.8 | Comprehensive Test Coverage |
 | **Monitoring** | Prometheus + Grafana + Micrometer | 2.54.x + 11.x + 1.13.x | Enterprise Observability Stack |
+| **Exporters** | Redis/MongoDB/Kafka Exporters | 1.61.0 / 0.40.0 / 1.7.0 | Infra metrics collection |
 | **Message Broker** | Apache Kafka + Zookeeper | 7.4.x + 3.8.x | Event Streaming & Processing |
 | **Event Store** | MongoDB | 7.x | CQRS Event Persistence |
 | **Cache Layer** | Redis | 7.4.x | High-Performance Caching |
