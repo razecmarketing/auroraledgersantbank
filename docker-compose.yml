@@ -1,52 +1,220 @@
-services:
-  postgres:
-    image: postgres:16-alpine
-    container_name: santander-postgres
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+networks:
+  aurora-network:
+    driver: bridge
 
-  mongo:
-    image: mongo:7
-    container_name: santander-mongo
+services:
+  # ==========================================
+  # MongoDB - Event Store (CQRS Write Side)
+  # ==========================================
+  mongodb:
+    image: mongo:7-jammy
+    container_name: aurora-mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: aurora123
+      MONGO_INITDB_DATABASE: aurora_events
     ports:
       - "27017:27017"
     volumes:
       - mongodata:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d
+    networks:
+      - aurora-network
     healthcheck:
       test: ["CMD", "mongosh", "--eval", "db.runCommand({ ping: 1 })"]
       interval: 10s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
 
+  # ==========================================
+  # Redis - Query Cache (CQRS Read Side)
+  # ==========================================
   redis:
     image: redis:7-alpine
-    container_name: santander-redis
-    command: ["redis-server", "--appendonly", "yes"]
+    container_name: aurora-redis
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "aurora123"]
     ports:
       - "6379:6379"
     volumes:
       - redisdata:/data
+    networks:
+      - aurora-network
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD", "redis-cli", "--no-auth-warning", "-a", "aurora123", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
+
+  # ==========================================
+  # Apache Kafka - Event Streaming
+  # ==========================================
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: aurora-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - zookeeper-data:/var/lib/zookeeper/data
+      - zookeeper-logs:/var/lib/zookeeper/log
+    networks:
+      - aurora-network
+    restart: unless-stopped
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: aurora-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    networks:
+      - aurora-network
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  # ==========================================
+  # Kafka UI - Monitoring Interface
+  # ==========================================
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: aurora-kafka-ui
+    depends_on:
+      - kafka
+    ports:
+      - "8081:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: aurora-cluster
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    networks:
+      - aurora-network
+    restart: unless-stopped
+
+  # ==========================================
+  # Prometheus - Metrics Collection
+  # ==========================================
+  prometheus:
+    image: prom/prometheus:v2.47.0
+    container_name: aurora-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - aurora-network
+    restart: unless-stopped
+
+  # ==========================================
+  # Grafana - Observability Dashboard
+  # ==========================================
+  grafana:
+    image: grafana/grafana:10.1.0
+    container_name: aurora-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=aurora123
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - aurora-network
+    restart: unless-stopped
+
+  # ==========================================
+  # Spring Boot Backend - Enhanced with Observability
+  # ==========================================
+  # app-backend:
+  #   build:
+  #     context: ./AuroraLedger
+  #     dockerfile: Dockerfile
+  #   container_name: aurora-backend
+  #   environment:
+  #     - SPRING_PROFILES_ACTIVE=docker
+  #     - SPRING_DATA_MONGODB_URI=mongodb://root:aurora123@mongodb:27017/aurora_events?authSource=admin
+  #     - SPRING_DATA_REDIS_HOST=redis
+  #     - SPRING_DATA_REDIS_PORT=6379
+  #     - SPRING_DATA_REDIS_PASSWORD=aurora123
+  #     - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+  #     - SERVER_PORT=8080
+  #     - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=health,info,metrics,prometheus
+  #     - MANAGEMENT_ENDPOINT_METRICS_ENABLED=true
+  #     - MANAGEMENT_ENDPOINT_PROMETHEUS_ENABLED=true
+  #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     mongodb:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #     kafka:
+  #       condition: service_healthy
+  #   networks:
+  #     - aurora-network
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 5
+  #   restart: unless-stopped
+
+  # ==========================================
+  # Angular Frontend (Nginx)
+  # ==========================================
+  # app-frontend:
+  #   build:
+  #     context: ./frontend/angular
+  #     dockerfile: Dockerfile
+  #   container_name: aurora-frontend
+  #   ports:
+  #     - "4200:80"
+  #   depends_on:
+  #     - app-backend
+  #   networks:
+  #     - aurora-network
+  #   restart: unless-stopped
 
 volumes:
-  pgdata:
   mongodata:
+    driver: local
   redisdata:
+    driver: local
+  kafka-data:
+    driver: local
+  zookeeper-data:
+    driver: local
+  zookeeper-logs:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
