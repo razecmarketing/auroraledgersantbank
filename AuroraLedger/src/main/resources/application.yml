@@ -26,6 +26,12 @@ spring:
     console:
       enabled: true
       path: /h2-console
+  
+  # Cache Configuration (Caffeine for CQRS Performance)
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=10m
   # MongoDB and Redis disabled for development
   # data:
   #   mongodb:

@@ -8,8 +8,8 @@
 ║   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝║
 ║                                                                                ║
 ║                     AURORA LEDGER ENTERPRISE PLATFORM                          ║
-║                                                                                ║
-╚════════════════════════════════════════════════════════════════════════════════╝
+║                     Cezi Cola Senior Software Engineer                         ║
+ ════════════════════════════════════════════════════════════════════════════════╝
 
 ┌────────────────────────────────────────────────────────────────────────────────┐
 │     SANTANDER DIGITAL CORE                         ENTERPRISE BANKING SOLUTION │
@@ -28,6 +28,6 @@
 │     - Docker + Kubernetes Ready                  - Enterprise Patterns         │
 │                                                                                │
 ├────────────────────────────────────────────────────────────────────────────────┤
-│  Technical Lead: Cezi Cola — Senior Software Engineer                          │
+│  Technical Lead: Bio Code Technology — Engineering Team                         │
 │                                                                                │
 └────────────────────────────────────────────────────────────────────────────────┘
