@@ -49,9 +49,7 @@ java -jar target/aurora-ledger-santander-*.jar
 cd AuroraLedger
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 
-# Frontend development (separate terminal)
-cd frontend/angular
-npm install && npm start
+<!-- Frontend section intentionally removed: backend-only scope -->
 ```
 
 ### Access Points
@@ -107,7 +105,6 @@ The system follows hexagonal architecture principles ensuring separation of conc
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Presentation Layer                      │
-│  Angular 18 Frontend + REST API Controllers               │
 ├─────────────────────────────────────────────────────────────┤
 │                   Application Layer                        │
 │  Command/Query Handlers + Use Cases + DTOs                │
@@ -704,9 +701,7 @@ jobs:
 **Consequences**: Schema synchronization requirements, migration testing needs
 
 ### ADR-004: Angular for Frontend
-**Decision**: Angular 18 with TypeScript for frontend development
-**Rationale**: Enterprise-grade framework with strong typing and testing support
-**Consequences**: Learning curve, build complexity, but better maintainability
+<!-- ADR related to frontend intentionally removed pending future phase -->
 
 ## Deployment Strategies
 
