@@ -16,8 +16,8 @@
 | **Core Engine** | Java 17.0.16 + Spring Boot 3.5.6 | High-Performance Transaction Processing | SOX, Basel III |
 | **Security Layer** | JWT + BCrypt + Spring Security | Authentication & Authorization | PCI DSS Level 1 |
 | **Data Persistence** | JPA/Hibernate + H2/PostgreSQL | ACID Transaction Management | GDPR, LGPD |
-| **Event Architecture** | CQRS + Domain Events | Audit Trail & Compliance | SOX, MiFID II |
-| **Observability** | Micrometer + Prometheus + Grafana | Real-time Monitoring | Operational Excellence |
+| **Event Architecture** | CQRS + Event Sourcing + Kafka | Real-time Event Processing | SOX, MiFID II |
+| **Observability** | Prometheus + Grafana + Redis + MongoDB | Enterprise Monitoring & Analytics | Operational Excellence |
 
 
 
@@ -142,7 +142,10 @@ The system follows hexagonal architecture principles ensuring separation of conc
 | **Database** | H2 (Dev) / PostgreSQL (Prod) | 2.2.224 / 16.x | ACID Compliant Storage |
 | **Build** | Maven | 3.9.6 | Dependency Management |
 | **Testing** | JUnit 5 + TestContainers | 5.11.x + 1.19.8 | Comprehensive Test Coverage |
-| **Monitoring** | Micrometer + Prometheus | 1.13.x + 2.54.x | Operational Observability |
+| **Monitoring** | Prometheus + Grafana + Micrometer | 2.54.x + 11.x + 1.13.x | Enterprise Observability Stack |
+| **Message Broker** | Apache Kafka + Zookeeper | 7.4.x + 3.8.x | Event Streaming & Processing |
+| **Event Store** | MongoDB | 7.x | CQRS Event Persistence |
+| **Cache Layer** | Redis | 7.4.x | High-Performance Caching |
 | **Containerization** | Docker + Docker Compose | 28.4.0 | Infrastructure Orchestration |
 | **Caching** | Redis + Caffeine | 7.4.x + 3.1.8 | High-Performance Caching |
 
@@ -467,7 +470,15 @@ class SecurityComplianceTest {
 
 ### Production-Ready Monitoring Stack
 
-The system implements comprehensive observability following the three pillars: **Metrics**, **Logs**, and **Traces**.
+The system implements comprehensive observability following the three pillars: **Metrics**, **Logs**, and **Traces** with enterprise-grade infrastructure:
+
+**7 Production Services Running:**
+- **aurora-redis**: High-performance caching and session management
+- **aurora-mongodb**: Event store for CQRS write-side persistence  
+- **aurora-prometheus**: Metrics collection with 15s scrape intervals
+- **aurora-zookeeper**: Kafka cluster coordination and metadata management
+- **aurora-grafana**: Executive dashboards with real-time analytics
+- **aurora-kafka** (2 instances): Distributed event streaming platform
 
 ```bash
 # Start complete observability infrastructure
@@ -479,12 +490,14 @@ docker compose up -d
 
 ### Monitoring Components
 
-| Component | URL | Purpose | SLA |
-|-----------|-----|---------|-----|
-| **Prometheus** | http://localhost:9090 | Metrics collection & alerting | 99.9% |
-| **Grafana** | http://localhost:3000 | Executive dashboards & visualization | 99.9% |
-| **Kafka** | localhost:9092 | Event streaming & audit trails | 99.95% |
-| **Redis** | localhost:6379 | Caching & session storage | 99.9% |
+| Component | URL | Purpose | Status | SLA |
+|-----------|-----|---------|--------|-----|
+| **Prometheus** | http://localhost:9090 | Metrics collection & alerting | Running | 99.9% |
+| **Grafana** | http://localhost:3000 | Executive dashboards & visualization | Running | 99.9% |
+| **Kafka Cluster** | localhost:9092 | Event streaming & audit trails | Running | 99.95% |
+| **Redis Cache** | localhost:6379 | High-performance caching | Running | 99.9% |
+| **MongoDB** | localhost:27017 | Event store & projections | Running | 99.9% |
+| **Zookeeper** | localhost:2181 | Kafka coordination | Running | 99.95% |
 | **MongoDB** | localhost:27017 | Event store & document storage | 99.9% |
 
 ### Key Performance Indicators (KPIs)
