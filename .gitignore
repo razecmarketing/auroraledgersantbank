@@ -44,6 +44,7 @@ tmp/
 *.iml
 *.iws
 .vscode/settings.json
+.vscode/cezi-cola*
 .project
 .classpath
 .metadata/

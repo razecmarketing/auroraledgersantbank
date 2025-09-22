@@ -1,12 +1,12 @@
-# 🏦 AURORA LEDGER SANTANDER - DEMONSTRAÇÃO EXECUTIVA COMPLETA
+# AURORA LEDGER - EXECUTIVE DEMONSTRATION
 
-**Sistema Bancário de Classe Mundial com CQRS, Event Sourcing e Observabilidade**
+**World-Class Banking System with CQRS, Event Sourcing and Enterprise Observability**
 
 ---
 
-## 📊 RESUMO EXECUTIVO
+## EXECUTIVE SUMMARY
 
-**Aurora Ledger Santander** é um sistema bancário moderno construído com arquitetura limpa, seguindo padrões de bancos multinacionais. Implementa CQRS (Command Query Responsibility Segregation), Event Sourcing, observabilidade completa e compliance bancário.
+**Aurora Ledger** represents a modern banking system built with clean architecture principles, following multinational banking standards. Implements CQRS (Command Query Responsibility Segregation), Event Sourcing, comprehensive observability, and full banking compliance frameworks.
 
 ### 🎯 FUNCIONALIDADES DEMONSTRADAS
 

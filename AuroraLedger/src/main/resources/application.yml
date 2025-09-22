@@ -64,12 +64,24 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info,metrics,prometheus
   info:
     java:
       enabled: true
     env:
       enabled: true
+
+  endpoint:
+    prometheus:
+      access: unrestricted
+  metrics:
+    export:
+      prometheus: {}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 10s
 
 # API Documentation
 springdoc:
