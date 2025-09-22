@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.function.Supplier;
 
 /**
- * Balance Query Handler - CQRS Read Side
+ * Balance Query Handler  CQRS Read Side
  * Leverages projection cache for fast queries.
  */
 @Component
@@ -39,3 +39,14 @@ public class BalanceQueryHandler implements QueryHandler<BalanceQuery, BalanceQu
         return BalanceQuery.class;
     }
 }
+
+
+
+
+
+
+
+
+
+
+

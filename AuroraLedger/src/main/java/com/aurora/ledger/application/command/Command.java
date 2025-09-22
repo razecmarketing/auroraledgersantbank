@@ -2,8 +2,8 @@ package com.aurora.ledger.application.command;
 
 /**
  * Command Base Interface
- * Following Greg Young's CQRS - Commands represent intent to change state
- * Command-Query Separation: Commands modify state, never return data
+ * Following Greg Young's CQRS  Commands represent intent to change state
+ * CommandQuery Separation: Commands modify state, never return data
  */
 public interface Command {
     
@@ -23,8 +23,18 @@ public interface Command {
     String getIssuedBy();
     
     /**
-     * Command validation - ensures command can be executed
+     * Command validation  ensures command can be executed
      * Fails fast principle: validate before attempting execution
      */
     void validate();
 }
+
+
+
+
+
+
+
+
+
+

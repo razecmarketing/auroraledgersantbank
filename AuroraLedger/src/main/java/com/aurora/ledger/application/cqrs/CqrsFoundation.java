@@ -40,3 +40,13 @@ public class CqrsFoundation {
         // Common query bus functionality
     }
 }
+
+
+
+
+
+
+
+
+
+

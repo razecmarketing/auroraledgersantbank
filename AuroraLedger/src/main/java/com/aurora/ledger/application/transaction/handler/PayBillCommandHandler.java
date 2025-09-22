@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Pay Bill Command Handler - CQRS Write Side
+ * Pay Bill Command Handler  CQRS Write Side
  * Handles bill payment operations with negativation logic
  * Allows users to go negative when insufficient balance
  */
@@ -107,4 +107,14 @@ public class PayBillCommandHandler implements CommandHandler<PayBillCommand> {
         return PayBillCommand.class;
     }
 }
+
+
+
+
+
+
+
+
+
+
 

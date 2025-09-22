@@ -11,3 +11,13 @@ public interface BalanceProjectionCache {
 
     void refreshSnapshot(String userLogin, Supplier<BalanceQueryResult> loader);
 }
+
+
+
+
+
+
+
+
+
+

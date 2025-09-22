@@ -54,7 +54,7 @@ public abstract class BaseCommand implements Command {
     }
     
     /**
-     * Business-specific validation - implemented by concrete commands
+     * Businessspecific validation  implemented by concrete commands
      */
     protected abstract void validateBusinessRules();
     
@@ -64,3 +64,13 @@ public abstract class BaseCommand implements Command {
                 getClass().getSimpleName(), commandId, issuedBy, createdAt);
     }
 }
+
+
+
+
+
+
+
+
+
+

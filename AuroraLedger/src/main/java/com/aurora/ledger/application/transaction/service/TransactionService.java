@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 /**
- * Transaction Service - CQRS Orchestrator
+ * Transaction Service  CQRS Orchestrator
  * Coordinates banking operations using Command and Query buses
  * Following Clean Architecture principles
  */
@@ -32,7 +32,7 @@ public class TransactionService {
     
     /**
      * Deposit money into user account
-     * Command side operation - modifies state
+     * Command side operation  modifies state
      */
     public void depositMoney(String userLogin, BigDecimal amount, String description) {
         logger.info("Processing deposit request: user={}, amount={}", userLogin, amount);
@@ -45,7 +45,7 @@ public class TransactionService {
     
     /**
      * Pay bill from user account
-     * Command side operation - modifies state, allows negativation
+     * Command side operation  modifies state, allows negativation
      */
     public void payBill(String userLogin, BigDecimal amount, String billDescription) {
         logger.info("Processing bill payment request: user={}, amount={}, bill={}", 
@@ -59,7 +59,7 @@ public class TransactionService {
     
     /**
      * Get user balance with transaction history
-     * Query side operation - returns data, never modifies state
+     * Query side operation  returns data, never modifies state
      */
     public BalanceQueryResult getBalanceWithHistory(String userLogin) {
         logger.debug("Processing balance query with history: user={}", userLogin);
@@ -75,7 +75,7 @@ public class TransactionService {
     
     /**
      * Get user balance only (no history)
-     * Query side operation - optimized for quick balance checks
+     * Query side operation  optimized for quick balance checks
      */
     public BalanceQueryResult getBalance(String userLogin) {
         logger.debug("Processing balance query: user={}", userLogin);
@@ -88,4 +88,30 @@ public class TransactionService {
         
         return result;
     }
+    
+    /**
+     * Get user balance summary (simplified version)
+     * Query side operation  returns balance summary for dashboard
+     */
+    public BalanceQueryResult getBalanceSummary(String userLogin) {
+        logger.debug("Processing balance summary query: user={}", userLogin);
+        
+        BalanceQuery query = new BalanceQuery(userLogin, false);
+        BalanceQueryResult result = queryBus.dispatch(query);
+        
+        logger.debug("Balance summary query completed: user={}, balance={}", 
+                    userLogin, result.getTotalBalance());
+        
+        return result;
+    }
 }
+
+
+
+
+
+
+
+
+
+

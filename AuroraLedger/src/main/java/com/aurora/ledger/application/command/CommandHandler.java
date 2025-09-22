@@ -5,9 +5,9 @@ import com.aurora.ledger.domain.shared.DomainEvent;
 import java.util.List;
 
 /**
- * CommandHandler Interface - CQRS Command Handler
+ * CommandHandler Interface  CQRS Command Handler
  * Processes commands that modify system state
- * Following Clean Architecture and Domain-Driven Design principles
+ * Following Clean Architecture and DomainDriven Design principles
  */
 public interface CommandHandler<T> {
     
@@ -22,3 +22,13 @@ public interface CommandHandler<T> {
      */
     Class<T> getCommandType();
 }
+
+
+
+
+
+
+
+
+
+

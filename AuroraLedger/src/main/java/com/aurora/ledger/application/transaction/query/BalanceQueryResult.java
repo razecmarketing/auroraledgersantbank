@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * Balance Query Result - CQRS Read Model
+ * Balance Query Result  CQRS Read Model
  * Contains user balance information and transaction history following Clean Architecture patterns.
  * Implements Uncle Bob's Clean Code principles with English naming conventions.
  * Following Fowler's patterns for Data Transfer Objects and Query Objects.
@@ -17,14 +17,14 @@ import java.util.List;
  *     {
  *       "type": "deposit",
  *       "amount": "100.00", 
- *       "date": "19-09-2025 14:30:15"
+ *       "date": "19092025 14:30:15"
  *     }
  *   ]
  * }
  * 
- * @author Aurora Ledger Engineering Team
+
  * @pattern Query Object + Data Transfer Object
- * @layer Application Layer - CQRS Read Side
+ * @layer Application Layer  CQRS Read Side
  */
 public class BalanceQueryResult {
     
@@ -77,7 +77,7 @@ public class BalanceQueryResult {
         public TransactionHistoryItem(String type, BigDecimal amount, LocalDateTime dateTime) {
             this.type = type;
             this.amount = amount.toString();
-            this.date = dateTime.format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+            this.date = dateTime.format(java.time.format.DateTimeFormatter.ofPattern("ddMMyyyy HH:mm:ss"));
         }
         
         public String getType() {
@@ -99,3 +99,13 @@ public class BalanceQueryResult {
                            totalBalance, transactionHistory.size(), isNegative);
     }
 }
+
+
+
+
+
+
+
+
+
+

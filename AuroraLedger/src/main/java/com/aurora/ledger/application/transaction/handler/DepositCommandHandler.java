@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Deposit Command Handler - CQRS Write Side
+ * Deposit Command Handler  CQRS Write Side
  * Handles money deposit operations with full business logic
  * Implements 1.02% interest calculation for negative balances
  */
@@ -107,4 +107,14 @@ public class DepositCommandHandler implements CommandHandler<DepositCommand> {
         return DepositCommand.class;
     }
 }
+
+
+
+
+
+
+
+
+
+
 

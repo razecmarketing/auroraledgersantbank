@@ -5,7 +5,7 @@ import com.aurora.ledger.application.command.AbstractUserCommand;
 import java.math.BigDecimal;
 
 /**
- * Pay Bill Command - CQRS Write Side
+ * Pay Bill Command  CQRS Write Side
  * Command to pay bills with negativation and 1.02% interest logic
  * Following CQRS principle: Commands change state, never return data
  */
@@ -40,3 +40,13 @@ public class PayBillCommand extends AbstractUserCommand {
                            getCommandId(), getUserLogin(), getAmount(), billDescription, getCorrelationId());
     }
 }
+
+
+
+
+
+
+
+
+
+

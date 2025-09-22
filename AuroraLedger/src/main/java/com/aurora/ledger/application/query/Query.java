@@ -2,7 +2,7 @@ package com.aurora.ledger.application.query;
 
 /**
  * Query Interface
- * Following Bertrand Meyer's Command-Query Separation
+ * Following Bertrand Meyer's CommandQuery Separation
  * Queries return data, never modify state
  */
 public interface Query<T> {
@@ -18,7 +18,17 @@ public interface Query<T> {
     QueryParameters getParameters();
     
     /**
-     * Expected result type - helps with type safety and serialization
+     * Expected result type  helps with type safety and serialization
      */
     Class<T> getResultType();
 }
+
+
+
+
+
+
+
+
+
+

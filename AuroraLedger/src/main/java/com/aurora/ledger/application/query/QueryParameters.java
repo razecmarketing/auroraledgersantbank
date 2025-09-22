@@ -17,7 +17,7 @@ public class QueryParameters {
     private String sortDirection = "ASC";
     
     /**
-     * Default constructor - initializes with default pagination values
+     * Default constructor  initializes with default pagination values
      */
     public QueryParameters() {
         // Default values already set in field declarations
@@ -72,3 +72,13 @@ public class QueryParameters {
                 filters, pageNumber, pageSize, sortBy, sortDirection);
     }
 }
+
+
+
+
+
+
+
+
+
+

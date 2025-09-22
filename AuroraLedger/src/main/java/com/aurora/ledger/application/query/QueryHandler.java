@@ -1,7 +1,7 @@
 package com.aurora.ledger.application.query;
 
 /**
- * QueryHandler Interface - CQRS Query Handler  
+ * QueryHandler Interface  CQRS Query Handler  
  * Processes queries that read system state without modifications
  * Following CQRS pattern for read/write separation
  */
@@ -9,7 +9,7 @@ public interface QueryHandler<Q, R> {
     
     /**
      * Handle query execution and return result
-     * Queries should be read-only and cacheable
+     * Queries should be readonly and cacheable
      */
     R handle(Q query);
     
@@ -18,3 +18,13 @@ public interface QueryHandler<Q, R> {
      */
     Class<Q> getQueryType();
 }
+
+
+
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@ import com.aurora.ledger.application.query.Query;
 import com.aurora.ledger.application.query.QueryParameters;
 
 /**
- * Balance Query - CQRS Read Side
+ * Balance Query  CQRS Read Side
  * Query to retrieve user balance information
  * Following Bertrand Meyer principle: Queries return data, never modify state
  */
@@ -55,3 +55,13 @@ public class BalanceQuery implements Query<BalanceQueryResult> {
                            queryId, userLogin, includeHistory);
     }
 }
+
+
+
+
+
+
+
+
+
+

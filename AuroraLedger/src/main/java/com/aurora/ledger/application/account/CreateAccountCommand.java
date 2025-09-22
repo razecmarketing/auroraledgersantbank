@@ -6,7 +6,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 /**
- * CreateAccountCommand - Command pattern for account creation
+ * CreateAccountCommand  Command pattern for account creation
  * Captures all required data with validation rules
  * 
  * 
@@ -32,3 +32,13 @@ public class CreateAccountCommand {
         this.requestedByUserId = requestedByUserId;
     }
 }
+
+
+
+
+
+
+
+
+
+

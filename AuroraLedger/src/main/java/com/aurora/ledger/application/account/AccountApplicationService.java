@@ -14,14 +14,14 @@ import java.util.Currency;
 import java.util.Optional;
 
 /**
- * AccountApplicationService - Orchestrates business use cases
+ * AccountApplicationService  Orchestrates business use cases
  * Implements Clean Architecture Application Layer principles
  * 
  * This is where the MAGIC happens:
  * 1. Domain logic execution
  * 2. Event publishing for audit
  * 3. Transaction management
- * 4. Cross-cutting concerns (logging, security)
+ * 4. Crosscutting concerns (logging, security)
  * 
  * 
  */
@@ -36,10 +36,10 @@ public class AccountApplicationService {
     /**
      * Creates a new banking account with full audit trail
      * This single method demonstrates:
-     * - Domain-driven design
-     * - Event sourcing
-     * - Transaction safety
-     * - Regulatory compliance
+     *  Domaindriven design
+     *  Event sourcing
+     *  Transaction safety
+     *  Regulatory compliance
      */
     @Transactional
     public Account createAccount(CreateAccountCommand command) {
@@ -92,15 +92,25 @@ public class AccountApplicationService {
         return accountRepository.findByAccountNumber(accountNumber.trim());
     }
     /**
-     * GDPR/LGPD compliance - never log full CPF
+     * GDPR/LGPD compliance  never log full CPF
      */
     private String maskCpf(String cpf) {
         if (cpf == null || cpf.length() < 4) {
             return "***";
         }
-        return "***.***.***-" + cpf.substring(cpf.length() - 2);
+        return "***.***.***" + cpf.substring(cpf.length() - 2);
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
