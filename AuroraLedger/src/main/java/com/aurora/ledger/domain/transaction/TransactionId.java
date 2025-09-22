@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.UUID;
 
 /**
- * TransactionId Value Object - Strong typing for transaction identification
+ * TransactionId Value Object  Strong typing for transaction identification
  * 
  * 
  */
@@ -34,3 +34,13 @@ public final class TransactionId {
         return value;
     }
 }
+
+
+
+
+
+
+
+
+
+

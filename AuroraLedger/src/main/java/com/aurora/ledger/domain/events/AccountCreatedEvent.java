@@ -8,7 +8,7 @@ import com.aurora.ledger.domain.common.Money;
 import java.util.UUID;
 
 /**
- * AccountCreatedEvent - Critical business event for audit and compliance
+ * AccountCreatedEvent  Critical business event for audit and compliance
  * Captures every detail needed for regulatory reporting
  * 
  * 
@@ -144,6 +144,16 @@ public class AccountCreatedEvent extends DomainEvent {
         if (cpf == null || cpf.length() < 4) {
             return "***";
         }
-        return "***.***.***-" + cpf.substring(cpf.length() - 2);
+        return "***.***.***" + cpf.substring(cpf.length() - 2);
     }
 }
+
+
+
+
+
+
+
+
+
+

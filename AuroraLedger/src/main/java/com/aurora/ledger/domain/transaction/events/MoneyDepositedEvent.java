@@ -148,3 +148,13 @@ public class MoneyDepositedEvent extends DomainEvent {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

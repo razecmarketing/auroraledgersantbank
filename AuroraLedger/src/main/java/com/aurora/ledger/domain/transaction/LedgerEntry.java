@@ -7,8 +7,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * LedgerEntry - Individual debit or credit entry in double-entry bookkeeping
- * Each entry represents one side of a double-entry transaction
+ * LedgerEntry  Individual debit or credit entry in doubleentry bookkeeping
+ * Each entry represents one side of a doubleentry transaction
  * 
  * 
  */
@@ -23,7 +23,7 @@ public final class LedgerEntry {
     private final String description;
     
     /**
-     * Creates a debit entry - represents money leaving an account
+     * Creates a debit entry  represents money leaving an account
      */
     public static LedgerEntry debit(AccountId accountId, Money amount, String description) {
         validateEntry(accountId, amount, description);
@@ -31,7 +31,7 @@ public final class LedgerEntry {
     }
     
     /**
-     * Creates a credit entry - represents money entering an account
+     * Creates a credit entry  represents money entering an account
      */
     public static LedgerEntry credit(AccountId accountId, Money amount, String description) {
         validateEntry(accountId, amount, description);
@@ -82,3 +82,13 @@ public final class LedgerEntry {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

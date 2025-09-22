@@ -1,7 +1,7 @@
 package com.aurora.ledger.domain.account;
 
 /**
- * AccountType - Banking account categories with specific rules
+ * AccountType  Banking account categories with specific rules
  * 
  * 
  */
@@ -20,3 +20,13 @@ public enum AccountType {
         return displayName;
     }
 }
+
+
+
+
+
+
+
+
+
+

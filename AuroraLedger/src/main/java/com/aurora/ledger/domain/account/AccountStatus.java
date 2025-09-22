@@ -1,7 +1,7 @@
 package com.aurora.ledger.domain.account;
 
 /**
- * AccountStatus - Account lifecycle states
+ * AccountStatus  Account lifecycle states
  * 
  * 
  */
@@ -25,3 +25,13 @@ public enum AccountStatus {
         return this == ACTIVE;
     }
 }
+
+
+
+
+
+
+
+
+
+

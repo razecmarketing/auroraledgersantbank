@@ -5,7 +5,7 @@ import java.util.UUID;
 
 /**
  * Domain Event Base Class
- * Following Bertrand Meyer's Command-Query Separation + Greg Young's CQRS principles
+ * Following Bertrand Meyer's CommandQuery Separation + Greg Young's CQRS principles
  * Immutable event that represents something that happened in the domain
  */
 public abstract class DomainEvent {
@@ -24,7 +24,7 @@ public abstract class DomainEvent {
         this.eventType = this.getClass().getSimpleName();
     }
     
-    // Queries only - immutable by design (Meyer's principle)
+    // Queries only  immutable by design (Meyer's principle)
     public UUID getEventId() { return eventId; }
     public LocalDateTime getOccurredOn() { return occurredOn; }
     public String getAggregateId() { return aggregateId; }
@@ -41,7 +41,7 @@ public abstract class DomainEvent {
      * Event stream position for ordering and replaying
      */
     public String getStreamPosition() {
-        return String.format("%s-%d", aggregateId, aggregateVersion);
+        return String.format("%s%d", aggregateId, aggregateVersion);
     }
     
     @Override
@@ -50,3 +50,13 @@ public abstract class DomainEvent {
                 eventType, eventId, aggregateId, aggregateVersion, occurredOn);
     }
 }
+
+
+
+
+
+
+
+
+
+

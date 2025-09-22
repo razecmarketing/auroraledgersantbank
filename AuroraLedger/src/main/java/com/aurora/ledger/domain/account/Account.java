@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * Account Aggregate Root - Core banking account with business rules
- * Implements double-entry bookkeeping principles and audit trail
+ * Account Aggregate Root  Core banking account with business rules
+ * Implements doubleentry bookkeeping principles and audit trail
  * 
  * 
  */
@@ -125,8 +125,8 @@ public class Account {
     private Money getMinimumBalance() {
         return switch (accountType) {
             case SAVINGS -> Money.zero(balance.getCurrency());
-            case CHECKING -> Money.of("-1000.00", balance.getCurrency().getCurrencyCode());
-            case BUSINESS -> Money.of("-5000.00", balance.getCurrency().getCurrencyCode());
+            case CHECKING -> Money.of("1000.00", balance.getCurrency().getCurrencyCode());
+            case BUSINESS -> Money.of("5000.00", balance.getCurrency().getCurrencyCode());
         };
     }
     
@@ -182,8 +182,8 @@ public class Account {
     }
     
     private static String generateAccountNumber() {
-        // Santander-like account number format: AAAA-BBBB-CC
-        return String.format("%04d-%04d-%02d", 
+        // Santanderlike account number format: AAAABBBBCC
+        return String.format("%04d%04d%02d", 
             RANDOM.nextInt(10000),
             RANDOM.nextInt(10000),
             RANDOM.nextInt(100)
@@ -251,3 +251,13 @@ public class Account {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

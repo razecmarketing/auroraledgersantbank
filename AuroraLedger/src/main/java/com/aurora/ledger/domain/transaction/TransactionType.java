@@ -1,7 +1,7 @@
 package com.aurora.ledger.domain.transaction;
 
 /**
- * TransactionType - Banking transaction categories
+ * TransactionType  Banking transaction categories
  * 
  * 
  */
@@ -33,3 +33,13 @@ public enum TransactionType {
         return this != INTEREST && this != FEE; // These might be single entry for simplicity
     }
 }
+
+
+
+
+
+
+
+
+
+

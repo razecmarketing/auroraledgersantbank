@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * DoubleEntryTransaction - Core banking transaction implementing double-entry bookkeeping
+ * DoubleEntryTransaction  Core banking transaction implementing doubleentry bookkeeping
  * Every transaction has debits and credits that must balance (sum = 0)
  * This ensures data integrity and audit compliance required by banking regulations
  * 
@@ -78,7 +78,7 @@ public final class DoubleEntryTransaction {
     
     /**
      * Creates a deposit transaction (external source to account)
-     * Uses a system account as the contra-account
+     * Uses a system account as the contraaccount
      */
     public static DoubleEntryTransaction createDeposit(
             AccountId targetAccount, 
@@ -105,7 +105,7 @@ public final class DoubleEntryTransaction {
     
     /**
      * Creates a withdrawal transaction (account to external destination)
-     * Uses a system account as the contra-account
+     * Uses a system account as the contraaccount
      */
     public static DoubleEntryTransaction createWithdrawal(
             AccountId sourceAccount, 
@@ -192,7 +192,7 @@ public final class DoubleEntryTransaction {
     }
     
     /**
-     * Validates double-entry bookkeeping rules:
+     * Validates doubleentry bookkeeping rules:
      * 1. Sum of all debits must equal sum of all credits
      * 2. Must have at least one debit and one credit
      * 3. All amounts must be positive
@@ -229,7 +229,7 @@ public final class DoubleEntryTransaction {
         
         if (!totalDebits.equals(totalCredits)) {
             throw new IllegalArgumentException(
-                String.format("Double-entry rule violated: Debits (%s) must equal Credits (%s)", 
+                String.format("Doubleentry rule violated: Debits (%s) must equal Credits (%s)", 
                     totalDebits, totalCredits));
         }
     }
@@ -320,3 +320,13 @@ public final class DoubleEntryTransaction {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

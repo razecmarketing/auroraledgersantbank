@@ -5,7 +5,7 @@ import com.aurora.ledger.domain.account.AccountType;
 import com.aurora.ledger.domain.common.Money;
 
 /**
- * Strategy interface for account-specific business rules and validations.
+ * Strategy interface for accountspecific business rules and validations.
  * Implements Strategy Pattern for different account type behaviors.
  */
 public interface AccountValidationStrategy {
@@ -22,3 +22,13 @@ public interface AccountValidationStrategy {
     
     Money calculateDailyLimit(Account account);
 }
+
+
+
+
+
+
+
+
+
+

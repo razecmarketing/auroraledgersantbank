@@ -9,11 +9,11 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * User Domain Entity - Banking Customer
+ * User Domain Entity  Banking Customer
  * Represents a registered banking customer with authentication capabilities
  * Following Uncle Bob's Clean Code principles and DDD patterns
  * 
- * @author Aurora Ledger Engineering Team
+
  * @pattern Domain Entity + Aggregate Root
  * @invariants User must have valid CPF, unique login, encrypted password
  */
@@ -184,7 +184,7 @@ public class User implements UserDetails {
      * Returns login formatted with banking domain suffix for presentation purposes.
      */
     public String getLoginWithDomain() {
-        return login + "@aurora-banking.com";
+        return login + "@aurorabanking.com";
     }
 
     public LocalDateTime getCreatedAt() {
@@ -196,7 +196,7 @@ public class User implements UserDetails {
     }
 
     public boolean isActive() {
-        // Business logic - returns active status with null safety
+        // Business logic  returns active status with null safety
         return Boolean.TRUE.equals(active);
     }
 
@@ -221,5 +221,15 @@ public class User implements UserDetails {
                 '}';
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 

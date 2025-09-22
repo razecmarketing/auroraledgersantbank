@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.UUID;
 
 /**
- * AccountId Value Object - Strong typing for account identification
+ * AccountId Value Object  Strong typing for account identification
  * 
  * 
  */
@@ -34,3 +34,13 @@ public final class AccountId {
         return value;
     }
 }
+
+
+
+
+
+
+
+
+
+

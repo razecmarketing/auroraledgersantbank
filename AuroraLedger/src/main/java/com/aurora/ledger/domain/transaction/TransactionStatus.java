@@ -1,7 +1,7 @@
 package com.aurora.ledger.domain.transaction;
 
 /**
- * TransactionStatus - Transaction lifecycle states for audit and compliance
+ * TransactionStatus  Transaction lifecycle states for audit and compliance
  * 
  * 
  */
@@ -31,3 +31,13 @@ public enum TransactionStatus {
         return this == COMPLETED;
     }
 }
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 package com.aurora.ledger.domain.account;
 
 /**
- * InsufficientFundsException - Domain exception for banking business rules
+ * InsufficientFundsException  Domain exception for banking business rules
  * 
  * 
  */
@@ -15,3 +15,13 @@ public class InsufficientFundsException extends RuntimeException {
         super(message, cause);
     }
 }
+
+
+
+
+
+
+
+
+
+

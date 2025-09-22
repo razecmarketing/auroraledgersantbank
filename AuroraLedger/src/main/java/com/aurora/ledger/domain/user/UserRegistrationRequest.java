@@ -5,7 +5,7 @@ package com.aurora.ledger.domain.user;
  * Data Transfer Object for user registration following Clean Code principles
  * Implements validation and immutability patterns recommended by Uncle Bob
  * 
- * @author Aurora Ledger Engineering Team
+
  * @pattern Data Transfer Object + Value Object
  */
 public class UserRegistrationRequest {
@@ -79,3 +79,13 @@ public class UserRegistrationRequest {
                 '}';
     }
 }
+
+
+
+
+
+
+
+
+
+

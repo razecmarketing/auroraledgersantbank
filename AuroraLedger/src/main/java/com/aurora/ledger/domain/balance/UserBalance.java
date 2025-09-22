@@ -80,7 +80,7 @@ public class UserBalance {
     }
     
     /**
-     * Pay bill - allows negativation if insufficient balance
+     * Pay bill  allows negativation if insufficient balance
      */
     public void payBill(BigDecimal amount) {
         validateAmount(amount);
@@ -89,7 +89,7 @@ public class UserBalance {
             // Sufficient balance
             this.currentBalance = this.currentBalance.subtract(amount);
         } else {
-            // Insufficient balance - go negative
+            // Insufficient balance  go negative
             BigDecimal shortfall = amount.subtract(currentBalance);
             this.currentBalance = BigDecimal.ZERO;
             this.negativeBalance = this.negativeBalance.add(shortfall);
@@ -167,3 +167,13 @@ public class UserBalance {
                            userLogin, currentBalance, negativeBalance, getEffectiveBalance());
     }
 }
+
+
+
+
+
+
+
+
+
+

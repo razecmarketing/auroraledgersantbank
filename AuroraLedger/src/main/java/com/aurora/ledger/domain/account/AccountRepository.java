@@ -47,3 +47,13 @@ public interface AccountRepository {
      */
     List<Account> findByCustomerCpf(String customerCpf);
 }
+
+
+
+
+
+
+
+
+
+

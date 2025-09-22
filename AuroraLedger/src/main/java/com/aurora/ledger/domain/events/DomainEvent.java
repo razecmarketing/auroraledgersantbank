@@ -46,3 +46,13 @@ public abstract class DomainEvent {
     
     public abstract String getAggregateId();
 }
+
+
+
+
+
+
+
+
+
+

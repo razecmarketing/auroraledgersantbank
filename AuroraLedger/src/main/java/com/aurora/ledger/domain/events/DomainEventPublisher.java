@@ -1,7 +1,7 @@
 package com.aurora.ledger.domain.events;
 
 /**
- * DomainEventPublisher - Interface for publishing domain events
+ * DomainEventPublisher  Interface for publishing domain events
  * Enables Event Sourcing and CQRS patterns
  * 
  * 
@@ -20,3 +20,13 @@ public interface DomainEventPublisher {
      */
     void publishAll(java.util.List<DomainEvent> events);
 }
+
+
+
+
+
+
+
+
+
+

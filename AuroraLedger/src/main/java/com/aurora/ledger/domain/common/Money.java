@@ -59,6 +59,14 @@ public final class Money {
         return new Money(this.amount.multiply(multiplier), this.currency);
     }
     
+    public Money divide(BigDecimal divisor) {
+        Objects.requireNonNull(divisor, "Divisor cannot be null");
+        if (divisor.compareTo(BigDecimal.ZERO) == 0) {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
+        return new Money(this.amount.divide(divisor, SCALE, ROUNDING), this.currency);
+    }
+    
     public boolean isPositive() {
         return amount.compareTo(BigDecimal.ZERO) > 0;
     }
@@ -118,3 +126,13 @@ public final class Money {
         return String.format("%s %s", currency.getCurrencyCode(), amount);
     }
 }
+
+
+
+
+
+
+
+
+
+
