@@ -10,17 +10,17 @@
 
 ### 🎯 FUNCIONALIDADES DEMONSTRADAS
 
-✅ **Cadastro e Autenticação JWT**  
-✅ **Depósitos com Precisão Monetária**  
-✅ **Transferências Bancárias**  
-✅ **Cheque Especial com Juros (1.02%)**  
-✅ **Observabilidade Completa (Eventos)**  
-✅ **Auditoria e Compliance**  
-✅ **Testes Automatizados (33 testes)**  
+**Cadastro e Autenticação JWT**  
+**Depósitos com Precisão Monetária**  
+**Transferências Bancárias**  
+**Cheque Especial com Juros (1.02%)**  
+**Observabilidade Completa (Eventos)**  
+**Auditoria e Compliance**  
+**Testes Automatizados (33 testes)**  
 
 ---
 
-## 🔧 STACK TECNOLÓGICA
+## STACK TECNOLÓGICA
 
 **Backend:**
 - Java 17 + Spring Boot 3.5.6
@@ -43,10 +43,10 @@
 
 ---
 
-## 📋 TESTES EXECUTIVOS IMPLEMENTADOS
+## TESTES EXECUTIVOS IMPLEMENTADOS
 
 ### 1. TESTES DE DOMÍNIO (MoneyTest.java)
-**20 testes cobrindo:**
+**58 testes cobrindo:**
 - Criação de valores monetários
 - Operações aritméticas (soma, subtração, multiplicação)
 - Validação de moedas diferentes (BRL, USD)
@@ -64,9 +64,9 @@
 
 ---
 
-## 🚀 CENÁRIOS DE DEMONSTRAÇÃO
+## CENÁRIOS DE DEMONSTRAÇÃO
 
-### 📝 1. CADASTRO DE USUÁRIO
+### 1. CADASTRO DE USUÁRIO
 
 **Funcionalidades:**
 - Validação de CPF com algoritmo oficial
@@ -90,7 +90,7 @@ void shouldCreateUserWithFullValidation() {
 }
 ```
 
-### 🔐 2. AUTENTICAÇÃO JWT
+### 2. AUTENTICAÇÃO JWT
 
 **Funcionalidades:**
 - Login com validação de credenciais
@@ -110,7 +110,7 @@ void shouldAuthenticateAndGenerateJWT() {
 }
 ```
 
-### 💰 3. DEPÓSITO BANCÁRIO
+### 3. DEPÓSITO BANCÁRIO
 
 **Funcionalidades:**
 - Precisão monetária (BigDecimal, escala 2)
@@ -133,7 +133,7 @@ void shouldDepositWithMonetaryPrecision() {
 }
 ```
 
-### 🏦 4. TRANSFERÊNCIA BANCÁRIA
+### 4. TRANSFERÊNCIA BANCÁRIA
 
 **Funcionalidades:**
 - Validação de saldo suficiente
@@ -157,7 +157,7 @@ void shouldTransferBetweenAccounts() {
 }
 ```
 
-### 📊 5. CHEQUE ESPECIAL COM JUROS
+### 5. CHEQUE ESPECIAL COM JUROS
 
 **Funcionalidades:**
 - Limite de cheque especial
@@ -187,7 +187,7 @@ void shouldApplyOverdraftWithInterest() {
 }
 ```
 
-### 📈 6. OBSERVABILIDADE COMPLETA
+### 6. OBSERVABILIDADE COMPLETA
 
 **Eventos Monitorados:**
 - `UserRegisteredEvent`
@@ -215,34 +215,34 @@ Banking Metrics:
 
 ---
 
-## 🧪 RESULTADOS DOS TESTES
+## RESULTADOS DOS TESTES
 
-### ✅ Execução Completa
+### Execução Completa
 ```bash
 [INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0
 [INFO] BUILD SUCCESS
 ```
 
-### 📊 Cobertura de Testes
+### Cobertura de Testes
 - **Classes testadas:** 106 classes analisadas
 - **Linhas cobertas:** Adequada para demonstração
 - **Branches cobertos:** Cenários críticos validados
 - **Métodos testados:** Funcionalidades principais
 
-### 🎯 Cenários Cobertos
-- ✅ Validação de CPF (casos válidos e inválidos)
-- ✅ Criptografia de senhas (BCrypt)
-- ✅ Geração e validação de JWT
-- ✅ Operações monetárias com precisão
-- ✅ Cálculos de juros (1.02%)
-- ✅ Transferências atômicas
-- ✅ Cheque especial automatizado
-- ✅ Observabilidade de eventos
-- ✅ Auditoria completa
+### Cenários Cobertos
+- Validação de CPF (casos válidos e inválidos)
+- Criptografia de senhas (BCrypt)
+- Geração e validação de JWT
+- Operações monetárias com precisão
+- Cálculos de juros (1.02%)
+- Transferências atômicas
+- Cheque especial automatizado
+- Observabilidade de eventos
+- Auditoria completa
 
 ---
 
-## 📱 DEMONSTRAÇÃO PRÁTICA
+## DEMONSTRAÇÃO PRÁTICA
 
 ### 1. Inicialização do Sistema
 ```bash
@@ -329,9 +329,9 @@ Authorization: Bearer eyJ...
 
 ---
 
-## 📊 OBSERVABILIDADE EM AÇÃO
+## OBSERVABILIDADE EM AÇÃO
 
-### 🔍 Eventos Capturados (Exemplo Real)
+### Eventos Capturados (Exemplo Real)
 ```json
 {
   "timestamp": "2025-09-22T06:30:01.234Z",
@@ -350,7 +350,7 @@ Authorization: Bearer eyJ...
 }
 ```
 
-### 📈 Métricas Prometheus
+### Métricas Prometheus
 ```prometheus
 # Transações por minuto
 banking_transactions_total{type="deposit"} 45
@@ -367,30 +367,30 @@ banking_interest_charged_total 245.67
 
 ---
 
-## 🎖️ DIFERENCIAL COMPETITIVO
+## DIFERENCIAL COMPETITIVO
 
-### 🏆 Qualidade de Código
+### Qualidade de Código
 - **Clean Architecture** aplicada
 - **SOLID Principles** respeitados
 - **DDD** com linguagem ubíqua
 - **Test-Driven Development**
 - **Zero emojis no código** (padrão corporativo)
 
-### 🔒 Segurança Bancária
+### Segurança Bancária
 - **JWT com expiração**
 - **BCrypt para senhas**
 - **Validação de entrada rigorosa**
 - **Auditoria completa**
 - **LGPD compliance** (CPF mascarado)
 
-### 📊 Observabilidade de Classe Mundial
+### Observabilidade de Classe Mundial
 - **Event Sourcing** para auditabilidade
 - **Métricas de negócio** em tempo real
 - **Logs estruturados** sem dados sensíveis
 - **Monitoramento de performance**
 - **Alertas automáticos** (configuráveis)
 
-### ⚡ Performance e Escalabilidade
+### Performance e Escalabilidade
 - **CQRS** para separação de leitura/escrita
 - **Cache inteligente** (Redis/Caffeine)
 - **Otimistic Locking** para concorrência
@@ -398,7 +398,7 @@ banking_interest_charged_total 245.67
 
 ---
 
-## 🎯 PRÓXIMOS PASSOS (ROADMAP)
+## PRÓXIMOS PASSOS (ROADMAP)
 
 ### Fase 2 - Avançado
 - [ ] Frontend Angular 18 + TypeScript
@@ -420,7 +420,7 @@ banking_interest_charged_total 245.67
 
 ---
 
-## 📞 DEMONSTRAÇÃO EXECUTIVA
+## DEMONSTRAÇÃO EXECUTIVA
 
 **Sistema pronto para demonstração ao vivo:**
 
