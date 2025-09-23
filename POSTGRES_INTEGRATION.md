@@ -1,10 +1,10 @@
 # PostgreSQL Integration Guide
 ## Aurora Ledger Banking System
 
-### 🎯 Overview
+###  Overview
 PostgreSQL integration seguindo **Martin Fowler's Profile Pattern** e **Michael Stonebraker's Database Abstraction**. PostgreSQL está configurado como **profile opcional**, mantendo H2 como padrão para desenvolvimento sem quebrar funcionalidade existente.
 
-### 🚀 Ativação do PostgreSQL
+###  Ativação do PostgreSQL
 
 #### Opção 1: Development Local
 ```bash
@@ -31,7 +31,7 @@ docker compose up -d
 mvn spring-boot:run
 ```
 
-### 🏗️ Arquitetura Implementada
+###  Arquitetura Implementada
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -49,7 +49,7 @@ mvn spring-boot:run
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 📊 Database Schema
+###  Database Schema
 
 PostgreSQL utiliza o schema `banking` com:
 
@@ -59,13 +59,13 @@ PostgreSQL utiliza o schema `banking` com:
 - **transaction_history**: Trilha de auditoria completa
 
 #### Funcionalidades Banking-Grade:
-- ✅ Constraints de integridade referencial
-- ✅ Triggers para consistência de saldo
-- ✅ Indexes otimizados para performance
-- ✅ Views para relatórios gerenciais
-- ✅ Funções PL/pgSQL para regras de negócio
+-  Constraints de integridade referencial
+-  Triggers para consistência de saldo
+-  Indexes otimizados para performance
+-  Views para relatórios gerenciais
+-  Funções PL/pgSQL para regras de negócio
 
-### 🔧 Configurações por Environment
+###  Configurações por Environment
 
 | Configuração | H2 (Default) | PostgreSQL (Production) |
 |-------------|--------------|-------------------------|
@@ -76,20 +76,20 @@ PostgreSQL utiliza o schema `banking` com:
 | **Performance** | Development | Production Tuned |
 | **Data Persistence** | Lost on restart | Permanent |
 
-### 🛡️ Security & Compliance
+###  Security & Compliance
 
 #### PCI DSS Compliance:
-- 🔒 JWT secrets 512-bit (64 bytes)
-- 🔒 Encrypted password storage
-- 🔒 Audit trail completo
-- 🔒 No sensitive data in logs
+-  JWT secrets 512-bit (64 bytes)
+-  Encrypted password storage
+-  Audit trail completo
+-  No sensitive data in logs
 
 #### LGPD/GDPR Ready:
-- 📋 Data masking functions
-- 📋 Retention policies
-- 📋 Right to be forgotten support
+-  Data masking functions
+-  Retention policies
+-  Right to be forgotten support
 
-### 🎯 Migration Strategy
+###  Migration Strategy
 
 #### Etapa 1: Desenvolvimento (Atual)
 ```bash
@@ -110,7 +110,7 @@ SPRING_PROFILES_ACTIVE=postgres mvn spring-boot:run
 docker compose --profile production up -d
 ```
 
-### 📈 Performance Benchmarks
+###  Performance Benchmarks
 
 | Operação | H2 Performance | PostgreSQL Performance |
 |----------|---------------|----------------------|
@@ -119,7 +119,7 @@ docker compose --profile production up -d
 | **Complex Query** | ~2ms | ~3-5ms |
 | **Concurrent Users** | 10-50 | 100-1000+ |
 
-### 🔍 Monitoring & Observability
+###  Monitoring & Observability
 
 #### PostgreSQL Metrics (Prometheus):
 - Connection pool status
@@ -156,7 +156,7 @@ docker ps | grep postgres
 telnet localhost 5432
 ```
 
-### 💡 Best Practices
+###  Best Practices
 
 #### Development:
 1. Use H2 para desenvolvimento rápido
@@ -169,14 +169,14 @@ telnet localhost 5432
 3. Monitorar performance queries
 4. Implementar connection pooling
 
-### 🎯 Next Steps
+###  Next Steps
 
 1. **Flyway Migration**: Versioning automático do schema
 2. **Read Replicas**: Scale horizontal para queries
 3. **Partitioning**: Performance para grandes volumes
 4. **Backup Strategy**: Continuous archiving + PITR
 
----
+
 
 **Martin Fowler Profile Pattern**: *"Configuration should adapt to environment, not the reverse"*  
 **Michael Stonebraker Database**: *"Right tool for the right job, seamlessly integrated"*
