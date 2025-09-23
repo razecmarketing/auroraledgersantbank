@@ -22,17 +22,6 @@ buildNumber.properties
 *.tar.gz
 *.rar
 
-# IDE Configuration Files
-.idea/
-*.iml
-*.iws
-.vscode/settings.json
-.vscode/cezi-cola*
-.project
-.classpath
-.metadata/
-.recommenders/
-
 # Operating System Files
 .DS_Store
 .DS_Store?
