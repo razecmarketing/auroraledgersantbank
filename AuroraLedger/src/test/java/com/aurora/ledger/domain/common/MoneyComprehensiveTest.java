@@ -99,7 +99,7 @@ class MoneyComprehensiveTest {
             
             // Then
             assertThat(money).isNotNull();
-            assertThat(money.getAmount()).isEqualTo(BigDecimal.ZERO);
+            assertThat(money.getAmount()).isEqualByComparingTo(BigDecimal.ZERO);
             assertThat(money.getCurrency()).isEqualTo(BRL);
             assertThat(money.isZero()).isTrue();
         }

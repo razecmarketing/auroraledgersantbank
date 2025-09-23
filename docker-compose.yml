@@ -48,6 +48,36 @@ services:
     restart: unless-stopped
 
   # ==========================================
+  # PostgreSQL - Production SQL Database (Profile-based)
+  # Following Michael Stonebraker database abstraction patterns
+  # Usage: SPRING_PROFILES_ACTIVE=postgres docker compose up -d
+  # ==========================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: aurora-postgres
+    environment:
+      POSTGRES_DB: aurora_bank
+      POSTGRES_USER: aurora
+      POSTGRES_PASSWORD: aurora123
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    networks:
+      - aurora-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aurora -d aurora_bank"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    profiles:
+      - postgres
+      - production
+
+  # ==========================================
   # Apache Kafka - Event Streaming
   # ==========================================
   zookeeper:
@@ -258,6 +288,8 @@ volumes:
   mongodata:
     driver: local
   redisdata:
+    driver: local
+  pgdata:
     driver: local
   kafka-data:
     driver: local

@@ -51,9 +51,23 @@ public class User implements UserDetails {
 
     // Constructor for user registration
     public User(String fullName, String document, String login, String password) {
-        this.fullName = fullName;
+        // Domain validation following Eric Evans DDD principles
+        if (fullName == null || fullName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Full name cannot be null or empty");
+        }
+        if (document == null || !isValidCPF(document)) {
+            throw new IllegalArgumentException("Invalid CPF document format");
+        }
+        if (login == null || login.trim().isEmpty()) {
+            throw new IllegalArgumentException("Login cannot be null or empty");
+        }
+        if (password == null || password.trim().isEmpty()) {
+            throw new IllegalArgumentException("Password cannot be null or empty");
+        }
+        
+        this.fullName = fullName.trim();
         this.document = document;
-        this.login = login;
+        this.login = login.trim();
         this.password = password;
         this.createdAt = LocalDateTime.now();
         this.active = true;
