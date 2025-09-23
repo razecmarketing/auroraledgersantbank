@@ -15,24 +15,24 @@ Built by applying enterprise-grade software engineering methodology combining cl
 ### Architecture Overview
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                 Aurora Banking Core (Spring Boot 3.5.6)    │
-├─────────────────────────────────────────────────────────────┤
-│  Application Layer                                          │
-│  • TransactionService  • AuthService  • BalanceService     │
-├─────────────────────────────────────────────────────────────┤
-│  Domain Layer (DDD)                                        │
-│  • User  • Money  • Account  • Transaction  • Balance      │
-├─────────────────────────────────────────────────────────────┤
-│  Infrastructure Layer (CQRS)                               │
-│  • CommandBus  • QueryBus  • EventBus  • Projections       │
-└─────────────────────────────────────────────────────────────┘
-│                    Multimodal Database Strategy             │
+┌─────────────────────────────────────────────────────────────────────┐
+│                 Aurora Banking Core (Spring Boot 3.5.6)             │
+├─────────────────────────────────────────────────────────────────────┤
+│  Application Layer                                                  │
+│  • TransactionService  • AuthService  • BalanceService              │
+├─────────────────────────────────────────────────────────────────────┤
+│  Domain Layer (DDD)                                                 │
+│  • User  • Money  • Account  • Transaction  • Balance               │
+├─────────────────────────────────────────────────────────────────────┤
+│  Infrastructure Layer (CQRS)                                        │
+│  • CommandBus  • QueryBus  • EventBus  • Projections                │
+└─────────────────────────────────────────────────────────────────────┘
+│                    Multimodal Database Strategy                     │
 │  SQL(H2/PostgreSQL) • NoSQL(MongoDB) • Cache(Redis) • Stream(Kafka) │
-└─────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Banking Operations Validated ✅
+### Banking Operations Validated 
 
 - **User Registration** → JWT Authentication (512-bit PCI DSS)
 - **Account Management** → Real-time Balance Tracking  
@@ -175,16 +175,16 @@ The system follows hexagonal architecture principles ensuring separation of conc
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Presentation Layer                      │
+│                    Presentation Layer                       │
 ├─────────────────────────────────────────────────────────────┤
-│                   Application Layer                        │
-│  Command/Query Handlers + Use Cases + DTOs                │
+│                   Application Layer                         │
+│  Command/Query Handlers + Use Cases + DTOs                  │
 ├─────────────────────────────────────────────────────────────┤
-│                     Domain Layer                           │
-│  Entities + Value Objects + Domain Services + Events      │
+│                     Domain Layer                            │
+│  Entities + Value Objects + Domain Services + Events        │
 ├─────────────────────────────────────────────────────────────┤
-│                  Infrastructure Layer                      │
-│  JPA Repositories + Security + External APIs + Events     │
+│                  Infrastructure Layer                       │
+│  JPA Repositories + Security + External APIs + Events       │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -870,22 +870,22 @@ spec:
 ### Next Steps & Roadmap
 
 #### Phase 1: Foundation (Completed)
-- ✅ Core banking operations (deposit, withdrawal, balance inquiry)
-- ✅ User authentication and authorization
-- ✅ Basic compliance framework
-- ✅ Monitoring and observability setup
+-  Core banking operations (deposit, withdrawal, balance inquiry)
+-  User authentication and authorization
+-  Basic compliance framework
+-  Monitoring and observability setup
 
 #### Phase 2: Enhancement (Next 3 months)
-- 🔄 Advanced fraud detection algorithms
-- 🔄 Multi-currency support
-- 🔄 Mobile API endpoints
-- 🔄 Advanced reporting capabilities
+-  Advanced fraud detection algorithms
+-  Multi-currency support
+-  Mobile API endpoints
+-  Advanced reporting capabilities
 
 #### Phase 3: Scale (6-12 months)
-- 📋 Microservices decomposition
-- 📋 Cloud deployment (AWS/Azure)
-- 📋 Machine learning integration
-- 📋 International compliance standards
+-  Microservices decomposition
+-  Cloud deployment (AWS/Azure)
+-  Machine learning integration
+-  International compliance standards
 
 ### Conclusion
 
