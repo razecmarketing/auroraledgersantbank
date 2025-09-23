@@ -4,7 +4,7 @@ Este documento descreve a estratégia de validação do **Aurora Ledger**, conso
 
 
 
-## 1. Escopo Coberto
+##  Escopo Coberto
 
 | Requisito | Teste Automatizado | Teste Manual | Evidência |
 |  |  |  |  |
@@ -19,7 +19,7 @@ Este documento descreve a estratégia de validação do **Aurora Ledger**, conso
 
 
 
-## 2. Suite Automatizada
+## Suite Automatizada
 
 Execução principal:
 
@@ -51,24 +51,9 @@ Eventos de domínio: projeções atualizadas em Redis/Mongo garantem consistênc
 
 Auditoria: trilhas compatíveis com padrões bancários de compliance.
 
-5. Observação Crítica
-
-Foi identificado um ponto sensível no frontend: a dependência de legacypeerdeps no npm install.
-Este ajuste é temporário e não deve ser mantido em produção.
-
-Recomendações:
-
-Travar versões no package.json:
-
-Angular: 18.x
-
-Node.js: 20.x LTS
-
-Substituir npm install por npm ci no CI/CD para builds determinísticos.
-
 Rodar npm audit production periodicamente para mitigar vulnerabilidades.
 
-6. Próximos Incrementos
+Próximos Incrementos
 
 Testcontainers + JaCoCo para testes mais robustos e cobertura de código.
 
@@ -76,7 +61,7 @@ Automação de smoke tests para os principais fluxos.
 
 Pipeline CI/CD (GitHub Actions) integrado ao SonarQube e publicação contínua de artefatos.
 
-7. Conclusão
+Conclusão
 
 O Aurora Ledger:
 
