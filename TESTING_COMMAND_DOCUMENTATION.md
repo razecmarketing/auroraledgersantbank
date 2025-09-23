@@ -1,7 +1,7 @@
 # Documentação Completa: Comandos de Teste - Aurora Ledger Banking System
 
 ## Visão Geral
-Este documento contém todos os comandos necessários para executar a suíte completa de testes do sistema bancário Aurora Ledger, visando alcançar 100% de cobertura de código conforme requerido pelo padrão Tricórtex.
+Este documento contém todos os comandos necessários para executar a suíte completa de testes do sistema bancário Aurora Ledger, visando alcançar 100% de cobertura de código conforme requerido pelo padrão Cezi Cola Senior Softwware Engineer.
 
 ## Estrutura de Testes Implementada
 
@@ -324,4 +324,4 @@ mvn help:active-profiles
 
 ---
 
-**Nota de Conformidade Tricórtex**: Este documento segue os padrões de qualidade enterprise, sem uso de emojis, com documentação técnica precisa e comandos validados para ambiente Windows PowerShell. Todos os comandos foram testados e validados para garantir 100% de cobertura de código conforme especificado.
+**: Este documento segue os padrões de qualidade enterprise, com documentação técnica precisa e comandos validados para ambiente Windows PowerShell. Todos os comandos foram testados e validados para garantir 100% de cobertura de código conforme especificado.
