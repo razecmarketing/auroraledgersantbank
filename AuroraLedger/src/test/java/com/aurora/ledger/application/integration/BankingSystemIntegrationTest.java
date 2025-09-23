@@ -38,7 +38,7 @@ class BankingSystemIntegrationTest {
     private JwtTokenManager jwtTokenManager;
     
     private static final String TEST_USER_LOGIN = "testuser";
-    private static final String TEST_USER_DOCUMENT = "12345678901";
+    private static final String TEST_USER_DOCUMENT = "11144477735"; // CPF válido
     private static final String TEST_PASSWORD = "testpassword123";
     
     @Nested
@@ -178,8 +178,8 @@ class BankingSystemIntegrationTest {
         @Test
         @DisplayName("Should create complete user-account relationship")
         void shouldCreateCompleteUserAccountRelationship() {
-            // Given
-            String customerCpf = TEST_USER_DOCUMENT;
+            // Given - CPF válido segundo algoritmo brasileiro oficial
+            String customerCpf = "11144477735"; // CPF matematicamente válido
             User user = new User("Test User", customerCpf, TEST_USER_LOGIN, TEST_PASSWORD);
             
             Money initialBalance = Money.brl("5000.00");
@@ -187,7 +187,7 @@ class BankingSystemIntegrationTest {
             
             // When & Then
             assertThat(user.getLogin()).isEqualTo(TEST_USER_LOGIN);
-            assertThat(user.getDocument()).isEqualTo(TEST_USER_DOCUMENT);
+            assertThat(user.getDocument()).isEqualTo("11144477735");
             assertThat(account.getCustomerCpf()).isEqualTo(customerCpf);
             assertThat(account.getBalance()).isEqualTo(initialBalance);
         }
@@ -228,18 +228,20 @@ class BankingSystemIntegrationTest {
         @Test
         @DisplayName("Should validate user document format")
         void shouldValidateUserDocumentFormat() {
-            // Given
-            String validDocument = "12345678901";
-            String invalidDocument = "123";
+            // Given - CPFs para teste de validação brasileira oficial
+            String validDocument = "11144477735"; // CPF matematicamente válido
+            String invalidDocument = "123"; // Formato inválido
             
-            // When & Then
+            // When & Then - CPF válido deve passar
             assertThatNoException().isThrownBy(() -> 
                 new User("Valid User", validDocument, "validuser", "password123")
             );
             
+            // CPF inválido deve gerar exceção específica
             assertThatThrownBy(() -> 
                 new User("Invalid User", invalidDocument, "invaliduser", "password123")
-            ).isInstanceOf(Exception.class);
+            ).isInstanceOf(IllegalArgumentException.class)
+             .hasMessageContaining("Invalid CPF document format");
         }
     }
     
