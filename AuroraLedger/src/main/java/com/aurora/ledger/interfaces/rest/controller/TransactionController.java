@@ -22,42 +22,42 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Transaction Controller  The Financial Command Center
- * "Any fool can write code that a computer can understand. Good programmers write code 
- * that humans can understand."  Martin Fowler
+ * Transaction Controller - The Financial Command Center
  * 
- * ARCHITECTURAL MASTERY (Greg Young + Uncle Bob):
- * This controller exemplifies CQRS at its finest  a clear separation between statechanging
- * commands and statereading queries. This isn't just pattern application; it's a solution
- * to the fundamental challenge of financial systems: how to maintain consistency while
- * achieving performance at scale.
+ * Banking transaction controller implementing clean architecture principles.
+ * Provides REST endpoints for financial operations with proper error handling.
  * 
- * Commands (POST operations) modify system state through the write model:
- *  Each command represents a business intention (deposit, payment)
- *  Commands generate domain events, creating an immutable audit trail
- *  State changes follow banking invariants (balance calculations, interest application)
+ * ARCHITECTURAL DESIGN PRINCIPLES:
+ * This controller implements CQRS pattern with clear separation between state-changing
+ * commands and state-reading queries. Commands modify system state through the write model
+ * while queries read optimized projections without side effects.
  * 
- * Queries (GET operations) read optimized projections without side effects:
- *  Read models are eventually consistent with write model
- *  Queries never modify state, following Dijkstra's principle of program correctness
- *  Response times are predictable O(1) through denormalized projections
+ * Commands (POST operations) modify system state:
+ * - Each command represents a business intention (deposit, payment)  
+ * - Commands generate domain events, creating an immutable audit trail
+ * - State changes follow banking invariants and business rules
  * 
- * FINANCIAL DOMAIN EXPERTISE (Eric Evans + DomainDriven Design):
- * Every endpoint represents a ubiquitous language concept from banking:
- *  Deposit: Money addition with regulatory compliance tracking
- *  Payment: Bill settlement with overdraft protection and interest calculation
- *  Balance: Realtime financial position with complete transaction history
+ * Queries (GET operations) read optimized projections:
+ * - Read models are eventually consistent with write model
+ * - Queries never modify state, ensuring predictable behavior
+ * - Response times are optimized through denormalized projections
  * 
- * The 1.02% interest logic isn't arbitrary  it reflects real banking mathematics
- * where negative balances incur charges upon next positive transaction.
+ * FINANCIAL DOMAIN EXPERTISE:
+ * Every endpoint represents core banking concepts:
+ * - Deposit: Money addition with regulatory compliance tracking
+ * - Payment: Bill settlement with overdraft protection and interest calculation  
+ * - Balance: Real-time financial position with complete transaction history
  * 
- * SYSTEMS RELIABILITY (Jeff Dean + Leslie Lamport):
- *  Idempotent operations prevent doubleprocessing of financial transactions
- *  Correlation IDs enable distributed tracing across microservices
- *  Graceful degradation ensures service availability during high load
- *  Circuit breakers protect against cascading failures
+ * The 1.02% interest logic reflects standard banking mathematics where
+ * negative balances incur charges upon next positive transaction.
  * 
- * SECURITY CONSCIOUSNESS (Torvalds + Lamport):
+ * SYSTEMS RELIABILITY:
+ * - Idempotent operations prevent double-processing of financial transactions
+ * - Correlation IDs enable distributed tracing across services
+ * - Graceful degradation ensures service availability during high load
+ * - Circuit breakers protect against cascading failures
+ * 
+ * SECURITY PRINCIPLES:
  *  JWT authentication ensures user identity verification
  *  Input validation prevents injection attacks on financial data
  *  Structured logging avoids sensitive data exposure

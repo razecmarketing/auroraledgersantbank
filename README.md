@@ -10,7 +10,7 @@
 
 **Aurora Ledger** is an enterprise-grade banking platform engineered following **Clean Architecture** principles, implementing **CQRS/Event Sourcing** patterns, and delivering **PCI DSS compliant** financial operations. The system demonstrates **95% operational readiness** with comprehensive **multimodal database strategy** and **banking-grade security**.
 
-Built by applying **Tricórtex methodology** combining expertise from Uncle Bob Martin (Clean Architecture), Jim Gray (Transaction Processing), Bruce Schneier (Security), and Werner Vogels (Distributed Systems).
+Built by applying enterprise-grade software engineering methodology combining clean architecture, transaction processing, security engineering, and distributed systems expertise.
 
 ### Architecture Overview
 
