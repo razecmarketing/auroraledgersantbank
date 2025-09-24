@@ -8,7 +8,7 @@
 [INFO] >>> spring-boot:3.5.6:run (default-cli) > test-compile @ aurora-ledger-santander >>>
 [INFO] 
 [INFO] --- jacoco:0.8.11:prepare-agent (default) @ aurora-ledger-santander ---
-[INFO] argLine set to "-javaagent:C:\\Users\\LENOVO\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.11\\org.jacoco.agent-0.8.11-runtime.jar=destfile=C:\\Users\\LENOVO\\OneDrive\\�rea de Trabalho\\AuroraLedgerSantander\\AuroraLedger\\target\\jacoco.exec"
+[INFO] argLine set to "-javaagent:C:\\Users\\LENOVO\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.11\\org.jacoco.agent-0.8.11-runtime.jar=destfile=C:\\Users\\LENOVO\\OneDrive\\�rea de Trabalho\\AuroraLedgerSantander\\AuroraLedger\\target\\jacoco.exec"
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ aurora-ledger-santander ---
 [INFO] Copying 3 resources from src\main\resources to target\classes
@@ -17,7 +17,7 @@
 [INFO] Nothing to compile - all classes are up to date.
 [INFO] 
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ aurora-ledger-santander ---
-[INFO] skip non existing resourceDirectory C:\Users\LENOVO\OneDrive\�rea de Trabalho\AuroraLedgerSantander\AuroraLedger\src\test\resources
+[INFO] skip non existing resourceDirectory C:\Users\LENOVO\OneDrive\�rea de Trabalho\AuroraLedgerSantander\AuroraLedger\src\test\resources
 [INFO] 
 [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ aurora-ledger-santander ---
 [INFO] Nothing to compile - all classes are up to date.
@@ -27,40 +27,61 @@
 [INFO] 
 [INFO] --- spring-boot:3.5.6:run (default-cli) @ aurora-ledger-santander ---
 [INFO] Attaching agents: []
-??????????????????????????????????????????????????????????????????????????????????
-?                                                                                ?
-?   ???????? ?????? ????   ???????????? ?????? ????   ?????????? ??????????????? ?
-?   ?????????????????????  ?????????????????????????  ????????????????????????????
-?   ?????????????????????? ???   ???   ?????????????? ??????  ?????????  ?????????
-?   ??????????????????????????   ???   ?????????????????????  ?????????  ?????????
-?   ???????????  ?????? ??????   ???   ???  ?????? ?????????????????????????  ????
-?   ???????????  ??????  ?????   ???   ???  ??????  ???????????? ???????????  ????
-?                                                                                ?
-?                     AURORA LEDGER ENTERPRISE PLATFORM                          ?
-?                                                                                ?
-??????????????????????????????????????????????????????????????????????????????????
+║═════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                 ║
+║   ███████╗ █████╗ ███╗   ██╗████████╗ █████╗ ███╗   ██╗██████╗ ███████╗██████╗  ║
+║   ██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗██╔════╝██╔══██╗ ║
+║   ███████╗███████║██╔██╗ ██║   ██║   ███████║██╔██╗ ██║██║  ██║█████╗  ██████╔╝ ║
+║   ╚════██║██╔══██║██║╚██╗██║   ██║   ██╔══██║██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗ ║
+║   ███████║██║  ██║██║ ╚████║   ██║   ██║  ██║██║ ╚████║██████╔╝███████╗██║  ██║ ║
+║   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝ ║
+║                                                                                 ║
+║                     AURORA LEDGER ENTERPRISE PLATFORM           TESTE           ║
+║                        World-Class Banking Technology                           ║
+╚═════════════════════════════════════════════════════════════════════════════════╝
 
-??????????????????????????????????????????????????????????????????????????????????
-?     SANTANDER DIGITAL CORE                         ENTERPRISE BANKING SOLUTION ?
-??????????????????????????????????????????????????????????????????????????????????
-?                                                                                ?
-?      ARCHITECTURE                                    FEATURES                  ?
-?     - Clean Architecture & CQRS                  - Real-time Transactions      ?
-?     - Event-Driven Design                        - Multi-currency Support      ?
-?     - Domain-Driven Development                  - Advanced Security (JWT)     ?
-?     - Microservices Ready                        - CPF Validation & Audit      ?
-?                                                  - Observability Ready         ?
-?    TECHNOLOGY STACK                                                            ?
-?     - Spring Boot 3.5.6 + Java 17                ENGINEERING                   ?
-?     - PostgreSQL + MongoDB + Redis               - TDD & Clean Code            ?
-?     - MapStruct + Lombok + OpenAPI               - SOLID Principles            ?
-?     - Docker + Kubernetes Ready                  - Enterprise Patterns         ?
-?                                                                                ?
-??????????????????????????????????????????????????????????????????????????????????
-?  Technical Lead: Cezi Cola � Senior Software Engineer                          ?
-?                                                                                ?
-??????????????????????????????????????????????????????????????????????????????????
-17:36:13.400 - INFO [           main] c.aurora.ledger.AuroraLedgerApplication  : Starting AuroraLedgerApplication using Java 17.0.16 with PID 29500 (C:\Users\LENOVO\OneDrive\�rea de Trabalho\AuroraLedgerSantander\AuroraLedger\target\classes started by LENOVO in C:\Users\LENOVO\OneDrive\�rea de Trabalho\AuroraLedgerSantander\AuroraLedger)
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                      ENTERPRISE BANKING SOLUTION                                 ║
+║                                                                                  ║
+╠══════════════════════════════════════════════════════════════════════════════════║
+║                     AURORA LEDGER ENTERPRISE PLATFORM           TESTE            ║
+║                        World-Class Banking Technology                            ║
+║  ████████████████████████████████████████████████████████████████████████████    ║
+║  █                          SYSTEM ARCHITECTURE                             █    ║
+║  ████████████████████████████████████████████████████████████████████████████    ║
+║                                                                                  ║
+║  ┌─────────────────────────────────┐  ┌─────────────────────────────────┐        ║
+║  │      ARCHITECTURE PATTERNS       │  │      ENTERPRISE FEATURES        │       ║
+║  ├─────────────────────────────────┤  ├─────────────────────────────────┤        ║
+║  │ ► Clean Architecture & CQRS     │  │ ► Real-time Transactions        │        ║
+║  │ ► Event-Driven Design           │  │ ► Multi-currency Support        │        ║
+║  │ ► Domain-Driven Development     │  │ ► Advanced Security (JWT/OAuth) │        ║
+║  │ ► Microservices Ready           │  │ ► CPF/CNPJ Validation & Audit   │        ║
+║  │ ► Hexagonal Architecture        │  │ ► Full Observability & Metrics  │        ║
+║  └─────────────────────────────────┘  └─────────────────────────────────┘        ║
+║                                                                                  ║
+║  ┌─────────────────────────────────┐  ┌─────────────────────────────────┐        ║
+║  │       TECHNOLOGY STACK          │  │      ENGINEERING PRACTICES      │        ║
+║  ├─────────────────────────────────┤  ├─────────────────────────────────┤        ║
+║  │ ✓ Spring Boot 3.5.6             │  │ ✓ Test-Driven Development       │       ║
+║  │ ✓ Java 17 LTS                   │  │ ✓ Clean Code & SOLID            │       ║
+║  │ ✓ PostgreSQL + MongoDB          │  │ ✓ Design Patterns               │       ║
+║  │ ✓ Redis Cache Layer             │  │ ✓ CI/CD Pipeline Ready          │       ║
+║  │ ✓ MapStruct + Lombok            │  │ ✓ Code Review Standards         │       ║
+║  │ ✓ OpenAPI 3.0 + Swagger         │  │ ✓ Performance Monitoring        │       ║
+║  │ ✓ Docker + Kubernetes           │  │ ✓ Security Best Practices       │       ║
+║  └─────────────────────────────────┘  └─────────────────────────────────┘        ║
+║                                                                                  ║
+╠══════════════════════════════════════════════════════════════════════════════════╣
+║                           SYSTEM STATUS: OPERATIONAL                             ║
+╠══════════════════════════════════════════════════════════════════════════════════╣
+║                                                                                  ║
+║  Technical Leadership: Cezi Cola • Senior Software Engineer                      ║
+║  Version: 0.1.0-SNAPSHOT | Environment: Development | Port: 8081                 ║
+║                                                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+
+17:36:13.400 - INFO [           main] c.aurora.ledger.AuroraLedgerApplication  : Starting AuroraLedgerApplication using Java 17.0.16 with PID 29500 (C:\Users\LENOVO\OneDrive\�rea de Trabalho\AuroraLedgerSantander\AuroraLedger\target\classes started by LENOVO in C:\Users\LENOVO\OneDrive\�rea de Trabalho\AuroraLedgerSantander\AuroraLedger)
 -17:36:13.405 - INFO [           main] c.aurora.ledger.AuroraLedgerApplication  : The following 1 profile is active: "dev"
 -17:36:14.857 - INFO [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
 -17:36:14.857 - INFO [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.

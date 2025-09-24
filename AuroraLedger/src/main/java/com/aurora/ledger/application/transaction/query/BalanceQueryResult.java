@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Balance Query Result  CQRS Read Model
  * Contains user balance information and transaction history following Clean Architecture patterns.
- * Implements Uncle Bob's Clean Code principles with English naming conventions.
+ * Implements Clean Code principles with English naming conventions.
  * Following Fowler's patterns for Data Transfer Objects and Query Objects.
  * 
  * JSON Response Format (English):
@@ -67,7 +67,7 @@ public class BalanceQueryResult {
     /**
      * Transaction History Item for JSON response
      * Following Clean Code principles with English naming conventions
-     * Implements Uncle Bob's Value Object pattern
+     * Implements Value Object pattern
      */
     public static class TransactionHistoryItem {
         private final String type;

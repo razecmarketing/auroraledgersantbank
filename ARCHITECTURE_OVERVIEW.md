@@ -23,42 +23,23 @@ Aurora Ledger is an enterprise-grade banking platform implementing CQRS (Command
 ## Architecture Diagram
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    API Gateway Layer                        │
-├─────────────────────────────────────────────────────────────┤
-│  REST Controllers │  Security Filter  │  Rate Limiting     │
-└─────────────────────────────────────────────────────────────┘
-                                │
-┌─────────────────────────────────────────────────────────────┐
-│                 Application Service Layer                   │
-├─────────────────────────────────────────────────────────────┤
-│ TransactionService │ AuthService │ UserService │ QueryService│
-└─────────────────────────────────────────────────────────────┘
-                                │
-        ┌───────────────────────┼───────────────────────┐
-        │                       │                       │
-┌───────▼────────┐    ┌────────▼─────────┐    ┌────────▼────────┐
-│  Command Bus   │    │   Query Bus      │    │  Event Bus      │
-│                │    │                  │    │                 │
-│ DepositCommand │    │ BalanceQuery     │    │ MoneyDeposited  │
-│ PayBillCommand │    │ HistoryQuery     │    │ BillPaidEvent   │
-└────────────────┘    └──────────────────┘    └─────────────────┘
-        │                       │                       │
-┌───────▼────────┐    ┌────────▼─────────┐    ┌────────▼────────┐
-│ Command        │    │ Query            │    │ Event           │
-│ Handlers       │    │ Handlers         │    │ Handlers        │
-│                │    │                  │    │                 │
-│ Business Logic │    │ Projection       │    │ Side Effects    │
-│ Validation     │    │ Optimization     │    │ Notifications   │
-└────────────────┘    └──────────────────┘    └─────────────────┘
-        │                       │                       │
-┌───────▼────────┐    ┌────────▼─────────┐    ┌────────▼────────┐
-│   Event Store  │    │  Read Models     │    │  External       │
-│                │    │                  │    │  Integrations   │
-│ MongoDB        │◄───┤ Redis Cache      │    │                 │
-│ (Write Side)   │    │ PostgreSQL Views │    │ Email Service   │
-│                │    │ (Read Side)      │    │ SMS Service     │
-└────────────────┘    └──────────────────┘    └─────────────────┘
++-------------------------------------------------------------+
+| API Gateway Layer                                           |
++-------------------------------------------------------------+
+| Application Service Layer                                   |
+| - TransactionService | AuthService | UserService | QueryService |
++-------------------------------------------------------------+
+| Messaging Buses                                            |
+| - Command Bus | Query Bus | Event Bus                       |
++-------------------------------------------------------------+
+| Handlers                                                   |
+| - Command Handlers | Query Handlers | Event Handlers        |
++-------------------------------------------------------------+
+| Data & Integrations                                        |
+| - Event Store: MongoDB (Write Side)                         |
+| - Read Models: Redis Cache; PostgreSQL Views (Read Side)    |
+| - External Integrations: Email Service; SMS Service         |
++-------------------------------------------------------------+
 ```
 
 ## Technology Stack
@@ -172,13 +153,13 @@ public class DomainEvent {
 ### Authentication Flow
 ```
 1. User Login Request
-   ↓
+  v
 2. Credential Validation (BCrypt)
-   ↓
+  v
 3. JWT Token Generation (512-bit)
-   ↓
+  v
 4. Token-Based API Access
-   ↓
+  v
 5. Request Authorization (Role-Based)
 ```
 

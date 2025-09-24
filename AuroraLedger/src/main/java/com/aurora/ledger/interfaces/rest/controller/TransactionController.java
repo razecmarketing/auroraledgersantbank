@@ -112,7 +112,7 @@ public class TransactionController {
      *  User context for audit trail compliance
      *  Amount precision to prevent rounding errors
      * 
-     * ERROR HANDLING PHILOSOPHY (Torvalds + Uncle Bob):
+     * ERROR HANDLING PHILOSOPHY:
      * Failures are not exceptional  they're expected in financial systems.
      * Our error responses provide actionable information without exposing
      * internal system details that could compromise security.

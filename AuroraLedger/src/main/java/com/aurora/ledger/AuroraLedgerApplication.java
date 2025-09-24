@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  * This application embodies the synthesis of decades of computer science wisdom:
  * 
- * ARCHITECTURAL PHILOSOPHY (Uncle Bob + Evans):
+ * ARCHITECTURAL PHILOSOPHY:
  *  Clean Architecture boundaries prevent coupling between business rules and frameworks
  *  DomainDriven Design ensures our banking model reflects realworld financial complexities
  *  The onion architecture protects our core business logic from external concerns
@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *  O(1) balance lookups through CQRS read model optimization
  *  Invariant preservation: account balances remain mathematically consistent
  * 
- * SYSTEMS THINKING (Jeff Dean + Lamport):
+ * SYSTEMS THINKING:
  *  Distributed consistency through event sourcing prevents data corruption
  *  CAP theorem considerations: we choose consistency over availability for financial data
  *  Horizontal scaling prepared through command/query separation patterns

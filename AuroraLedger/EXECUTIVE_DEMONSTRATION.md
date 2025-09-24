@@ -419,9 +419,8 @@ banking_interest_charged_total 245.67
 ## NEXT STEPS (ROADMAP)
 
 ### Phase 2 - Advanced
-- [PLANNED] Angular 18 + TypeScript Frontend
-- [PLANNED] GraphQL API for complex queries
-- [ ] Machine Learning para detecção de fraudes
+- [PLANNED] GraphQL API para consultas complexas
+- [ ] Monitoramento de padrões transacionais para suporte a auditorias
 - [ ] Blockchain para auditoria imutável
 
 ### Fase 3 - Enterprise
@@ -430,8 +429,7 @@ banking_interest_charged_total 245.67
 - [ ] CQRS distribuído
 - [ ] Multi-região e disaster recovery
 
-### Fase 4 - AI Banking
-- [ ] Assistente virtual para clientes
+### Fase 4 - Banking Intelligence
 - [ ] Análise preditiva de crédito
 - [ ] Prevenção de fraudes em tempo real
 - [ ] Personalização de produtos financeiros

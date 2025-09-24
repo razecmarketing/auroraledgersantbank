@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * CQRS Configuration  The Orchestration of Computational Responsibility
  * "The art of programming is the skill of controlling complexity."  Edsger W. Dijkstra
  * 
- * ARCHITECTURAL PHILOSOPHY (Greg Young + Martin Fowler):
+ * ARCHITECTURAL PHILOSOPHY (CQRS Design Patterns):
  * This configuration represents the pinnacle of software architecture evolution 
  * the recognition that reads and writes have fundamentally different characteristics
  * and should be optimized independently. CQRS isn't just a pattern; it's a solution
@@ -30,12 +30,12 @@ import org.springframework.context.annotation.Configuration;
  *  Queries: Statereading operations optimized for performance and user experience  
  *  Events: The immutable truth that bridges both sides through eventual consistency
  * 
- * DEPENDENCY INJECTION WISDOM (Fowler + Uncle Bob):
+ * DEPENDENCY INJECTION WISDOM (Enterprise Design Patterns):
  * Rather than scattered handler registrations throughout the codebase, this configuration
  * centralizes the wiring of our CQRS infrastructure. Following the Single Responsibility
  * Principle, each handler focuses on one specific business capability.
  * 
- * EVENTDRIVEN ARCHITECTURE (Leslie Lamport + Distributed Systems):
+ * EVENT-DRIVEN ARCHITECTURE (Distributed Systems Patterns):
  * Events represent facts that have occurred  they cannot be denied or changed.
  * This immutability provides the foundation for:
  *  Audit trails for financial compliance
@@ -48,12 +48,12 @@ import org.springframework.context.annotation.Configuration;
  * Changes to command processing logic don't affect query optimization, and vice versa.
  * This separation enables independent scaling and evolution of system components.
  * 
- * INVERSION OF CONTROL (Uncle Bob Dependency Inversion):
+ * INVERSION OF CONTROL (Dependency Inversion Principle):
  * Highlevel business logic doesn't depend on lowlevel infrastructure concerns.
  * The command bus, query bus, and event bus are abstractions that allow us to
  * swap implementations (inmemory, distributed, async) without changing business code.
  * 
- * SYSTEMS THINKING (Jeff Dean + Kay ObjectOriented Philosophy):
+ * SYSTEMS THINKING (Object-Oriented Design Philosophy):
  * This configuration creates a messagepassing system where objects collaborate
  * through welldefined protocols. Each handler is an autonomous computational
  * entity that responds to specific message types.

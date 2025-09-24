@@ -72,7 +72,7 @@ public class DeepFileIntegrityAnalyzer {
                    fileName.endsWith(".war") ||
                    pathStr.contains("target" + File.separator) ||
                    pathStr.contains(".git" + File.separator) ||
-                   pathStr.contains("node_modules" + File.separator);
+                   false; // Backend-only scope: no client-side artifacts expected
         }
 
         private void analyzeFile(Path file) {

@@ -28,7 +28,7 @@ import java.util.Map;
  * - Comprehensive error handling and monitoring
  * - Security configurations for PCI DSS compliance
  * 
- * Architecture Principles (Greg Young Event Sourcing):
+ * Architecture Principles (Event Sourcing):
  * Events are the source of truth for banking state
  * All business operations must be captured as immutable events
  * Event ordering is critical for financial consistency

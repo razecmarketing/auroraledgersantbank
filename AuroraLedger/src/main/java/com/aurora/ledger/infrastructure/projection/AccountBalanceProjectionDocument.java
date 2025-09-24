@@ -16,7 +16,7 @@
  * - Consistency: Eventually consistent with strong audit guarantees
  * 
  * Architecture: Event Sourcing + CQRS + MongoDB
- * Author: Tricórtex Banking Engineering Team
+ * Author: CEZI COLA Senior Software Engineer
  * Date: January 2025
  */
 package com.aurora.ledger.infrastructure.projection;

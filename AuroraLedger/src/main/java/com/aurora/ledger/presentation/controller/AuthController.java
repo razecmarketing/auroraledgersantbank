@@ -22,12 +22,12 @@ import java.util.HashMap;
  * Authentication Controller  User Interface Layer
  * 
  * Handles user registration and authentication operations following Clean Architecture principles.
- * Implements Uncle Bob's Dependency Rule: dependencies point inward toward business logic.
+ * Implements Clean Architecture Dependency Rule: dependencies point inward toward business logic.
  * 
  * ARCHITECTURAL PATTERNS APPLIED:
- *  Clean Architecture (Uncle Bob): Controllers are adapters in the interface layer
+ *  Clean Architecture Principles: Controllers are adapters in the interface layer
  *  Command Query Separation (Bertrand Meyer): Separate write operations (register) from read operations
- *  DomainDriven Design (Eric Evans): Uses domain objects and ubiquitous language
+ *  Domain-Driven Design: Uses domain objects and ubiquitous language
  * 
  * SECURITY PRINCIPLES (Liskov Substitution + Information Hiding):
  *  JWT token generation abstracted through interface

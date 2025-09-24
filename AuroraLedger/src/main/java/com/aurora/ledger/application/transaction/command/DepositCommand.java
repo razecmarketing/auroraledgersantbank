@@ -14,13 +14,13 @@ import java.math.BigDecimal;
  * Following Meyer's CommandQuery Separation principle, this command modifies state
  * but never returns business data  its success is measured through event emission.
  * 
- * DOMAINDRIVEN DESIGN EXCELLENCE (Eric Evans):
+ * DOMAIN-DRIVEN DESIGN EXCELLENCE:
  * The DepositCommand represents the ubiquitous language of banking:
  *  Not just "add money"  but a formal financial transaction with audit trail
  *  Amount precision follows banking standards (BigDecimal for monetary calculations)
  *  Correlation IDs enable transaction tracing across distributed systems
  * 
- * TEMPORAL ORDERING & CONSISTENCY (Leslie Lamport):
+ * TEMPORAL ORDERING & CONSISTENCY:
  * Each command carries its creation timestamp, establishing happenedbefore relationships
  * critical for event replay and distributed system consistency. The commandId provides
  * idempotency guarantees  essential for reliable financial operations.

@@ -5,7 +5,7 @@ import java.util.UUID;
 
 /**
  * Domain Event Base Class
- * Following Bertrand Meyer's CommandQuery Separation + Greg Young's CQRS principles
+ * Following Command-Query Separation + CQRS principles
  * Immutable event that represents something that happened in the domain
  */
 public abstract class DomainEvent {

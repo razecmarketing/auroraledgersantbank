@@ -22,10 +22,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     
-    <!-- Frontend Build -->
-    <frontend-maven-plugin.version>1.15.1</frontend-maven-plugin.version>
-    <node.version>v20.19.5</node.version>
-    <npm.version>10.8.2</npm.version>
+  <!-- (UI removida do projeto) -->
     
     <!-- Code Quality & Coverage -->
     <jacoco.version>0.8.12</jacoco.version>
@@ -290,18 +287,12 @@
 
   <!-- Maven Profiles for flexible building -->
   <profiles>
-    <!-- Backend-only profile (skip frontend) -->
+  <!-- Backend-only profile -->
     <profile>
       <id>backend-only</id>
       <build>
         <plugins>
-          <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <configuration>
-              <skip>true</skip>
-            </configuration>
-          </plugin>
+          <!-- (Plugin de UI removido) -->
         </plugins>
       </build>
     </profile>

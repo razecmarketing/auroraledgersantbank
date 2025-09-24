@@ -3,7 +3,7 @@ package com.aurora.ledger.domain.user;
 /**
  * User Registration Request DTO
  * Data Transfer Object for user registration following Clean Code principles
- * Implements validation and immutability patterns recommended by Uncle Bob
+ * Implements validation and immutability patterns recommended by Clean Code principles
  * 
 
  * @pattern Data Transfer Object + Value Object
@@ -61,7 +61,7 @@ public class UserRegistrationRequest {
 
     /**
      * Validates the registration request using business rules
-     * Following Uncle Bob's Clean Code validation principles
+     * Following Clean Code validation principles
      */
     public boolean isValid() {
         return fullName != null && !fullName.trim().isEmpty() &&

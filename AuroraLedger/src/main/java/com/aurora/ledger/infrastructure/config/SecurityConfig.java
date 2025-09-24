@@ -19,9 +19,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 /**
  * Security Configuration  The Cryptographic Fortress of Financial Data
- * "Security is not a product, but a process."  Bruce Schneier
+ * "Security is not a product, but a process." — Cryptographic Security Principles
  * 
- * DEFENSE IN DEPTH STRATEGY (Torvalds + Lamport Distributed Systems):
+ * DEFENSE IN DEPTH STRATEGY (Enterprise Security Architecture):
  * This configuration implements multiple layers of security, acknowledging that
  * financial systems face adversarial environments where attackers have unlimited
  * time and resources. Each layer provides independent protection:
@@ -42,7 +42,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
  *  SHA256 for JWT signatures: Collisionresistant hash function
  *  Timebased token expiry: Limits exposure window for compromised tokens
  * 
- * ZERO TRUST PRINCIPLES (Lamport's Byzantine Fault Tolerance):
+ * ZERO TRUST PRINCIPLES (Byzantine Fault Tolerance Patterns):
  * Every request is authenticated and authorized, regardless of origin.
  * No implicit trust zones  even internal services must prove their identity.
  * 
@@ -112,12 +112,12 @@ public class SecurityConfig {
     }
 
     /**
-     * CORS configuration to allow Angular frontend access
+     * CORS configuration for API access during development
      */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+    configuration.setAllowedOrigins(List.of("http://localhost:8080"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

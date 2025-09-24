@@ -33,7 +33,7 @@ public class CommandBus {
     
     /**
      * Executes command and publishes resulting events
-     * Following Greg Young's CQRS pattern
+     * Following CQRS pattern
      */
     @SuppressWarnings("unchecked")
     public void dispatch(Command command) {

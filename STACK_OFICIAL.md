@@ -171,7 +171,7 @@ dockercompose down       # Parar ambiente
  **Microservices**: Monólito modular facilmente divisível
  **Event Streaming**: Kafka para highthroughput
  **Multiregion**: Database sharding e replicação
- **Enterprise Logging**: Logs estruturados para auditoria e rastreabilidade
+ **Enterprise Logging**: Logs estruturados para auditoria
  **API Gateway**: Kong ou Spring Cloud Gateway
 
 

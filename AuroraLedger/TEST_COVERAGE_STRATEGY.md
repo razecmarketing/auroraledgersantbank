@@ -1,7 +1,7 @@
 # Aurora Ledger Test Coverage Strategy
 ## A Comprehensive Testing Framework for Banking Systems
 
-*Engineered following principles established by Cezi Cola Senior Software Engineer*
+*Engineered following established software engineering principles*
 
 ---
 
@@ -11,7 +11,7 @@ This document outlines the test coverage strategy for Aurora Ledger, a mission-c
 
 ### Testing Philosophy
 
-Following Uncle Bob's Clean Architecture principles and Kent Beck's Test-Driven Development methodology, our testing strategy prioritizes:
+Following Clean Architecture principles and Test-Driven Development methodology, our testing strategy prioritizes:
 
 1. **Test First**: All production code is preceded by failing tests
 2. **Fast Feedback**: Unit tests execute in milliseconds, integration tests in seconds
@@ -26,13 +26,13 @@ Following Uncle Bob's Clean Architecture principles and Kent Beck's Test-Driven 
 ### Layer-Based Testing Strategy
 
 ```
-┌─────────────────────────────────────────────┐
-│              E2E Tests (5%)                 │  ← Full system behavior
-├─────────────────────────────────────────────┤
-│           Integration Tests (15%)           │  ← Cross-boundary interactions
-├─────────────────────────────────────────────┤
-│              Unit Tests (80%)               │  ← Business logic validation
-└─────────────────────────────────────────────┘
++---------------------------------------------+
+|              E2E Tests (5%)                 |  <- Full system behavior
++---------------------------------------------+
+|           Integration Tests (15%)           |  <- Cross-boundary interactions
++---------------------------------------------+
+|              Unit Tests (80%)               |  <- Business logic validation
++---------------------------------------------+
 ```
 
 ### Coverage Targets by Layer
@@ -50,7 +50,7 @@ Following Uncle Bob's Clean Architecture principles and Kent Beck's Test-Driven 
 
 ### Core Business Logic Validation
 
-Following Eric Evans' Domain-Driven Design principles, our domain tests focus on:
+Following Domain-Driven Design principles, our domain tests focus on:
 
 #### User Domain Tests
 ```java

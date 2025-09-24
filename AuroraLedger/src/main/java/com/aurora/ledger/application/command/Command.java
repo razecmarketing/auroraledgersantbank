@@ -2,7 +2,7 @@ package com.aurora.ledger.application.command;
 
 /**
  * Command Base Interface
- * Following Greg Young's CQRS  Commands represent intent to change state
+ * Following CQRS principles - Commands represent intent to change state
  * CommandQuery Separation: Commands modify state, never return data
  */
 public interface Command {

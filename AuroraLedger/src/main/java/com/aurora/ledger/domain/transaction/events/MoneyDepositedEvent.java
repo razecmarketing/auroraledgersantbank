@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Money Deposited Event
  * Domain Event emitted when user deposits money
- * Following Greg Young's Event Sourcing principles
+ * Following Event Sourcing principles
  */
 public class MoneyDepositedEvent extends DomainEvent {
 

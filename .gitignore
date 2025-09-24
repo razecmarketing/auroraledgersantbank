@@ -1,5 +1,5 @@
 # Aurora Ledger Banking System - Build Exclusions
-# Standard Maven, Node.js, and IDE exclusions
+# Standard Maven and IDE exclusions
 
 # Maven Build Files
 /target/
@@ -13,22 +13,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-# Node.js & Angular Frontend
-frontend/
-aurora-ledger-ui/
-archive/aurora-ledger-ui-archived/
-frontend/node_modules/
-frontend/dist/
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.npm
-.yarn-integrity
-dist/
-tmp/
-.angular/
-.sass-cache/
+# Note: UI-related entries were removed as the project is backend-only
 
 # Java Compiled Classes
 *.class
@@ -43,7 +28,7 @@ tmp/
 .idea/
 *.iml
 *.iws
-.vscode/settings.json
+.vscode/
 .vscode/cezi-cola*
 .project
 .classpath

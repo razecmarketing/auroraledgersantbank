@@ -11,7 +11,7 @@ import java.util.Collections;
 /**
  * User Domain Entity  Banking Customer
  * Represents a registered banking customer with authentication capabilities
- * Following Uncle Bob's Clean Code principles and DDD patterns
+ * Following Clean Code principles and DDD patterns
  * 
 
  * @pattern Domain Entity + Aggregate Root
@@ -51,7 +51,7 @@ public class User implements UserDetails {
 
     // Constructor for user registration
     public User(String fullName, String document, String login, String password) {
-        // Domain validation following Eric Evans DDD principles
+        // Domain validation following DDD principles
         if (fullName == null || fullName.trim().isEmpty()) {
             throw new IllegalArgumentException("Full name cannot be null or empty");
         }

@@ -268,21 +268,7 @@ services:
   #     retries: 5
   #   restart: unless-stopped
 
-  # ==========================================
-  # Angular Frontend (Nginx)
-  # ==========================================
-  # app-frontend:
-  #   build:
-  #     context: ./frontend/angular
-  #     dockerfile: Dockerfile
-  #   container_name: aurora-frontend
-  #   ports:
-  #     - "4200:80"
-  #   depends_on:
-  #     - app-backend
-  #   networks:
-  #     - aurora-network
-  #   restart: unless-stopped
+  # Note: UI component was removed from this repository (backend-only scope)
 
 volumes:
   mongodata:

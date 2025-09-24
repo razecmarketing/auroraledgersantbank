@@ -1,10 +1,10 @@
 # PostgreSQL Integration Guide
 ## Aurora Ledger Banking System
 
-### 🎯 Overview
-PostgreSQL integration seguindo **Martin Fowler's Profile Pattern** e **Michael Stonebraker's Database Abstraction**. PostgreSQL está configurado como **profile opcional**, mantendo H2 como padrão para desenvolvimento sem quebrar funcionalidade existente.
+### Overview
+PostgreSQL integration follows widely adopted profile-based configuration and database abstraction guidelines. PostgreSQL is configured as an **optional profile**, maintaining H2 as default for development without breaking existing functionality.
 
-### 🚀 Ativação do PostgreSQL
+### PostgreSQL Activation
 
 #### Opção 1: Development Local
 ```bash
@@ -31,25 +31,29 @@ docker compose up -d
 mvn spring-boot:run
 ```
 
-### 🏗️ Arquitetura Implementada
+### Arquitetura Implementada
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Aurora Banking System                    │
-├─────────────────────────────────────────────────────────────┤
-│  Development Mode (Default)    │  Production Mode (Optional) │
-│  • H2 In-Memory Database       │  • PostgreSQL Persistent    │
-│  • Rapid Development           │  • Production Grade          │
-│  • Zero Setup Required         │  • Banking Compliance       │
-│  • Auto Schema Creation        │  • ACID Transactions         │
-└─────────────────────────────────────────────────────────────┘
-│                    Shared Components                        │
-│  • MongoDB (Event Store)   • Redis (Cache)                 │
-│  • Kafka (Streaming)       • Grafana (Monitoring)          │
-└─────────────────────────────────────────────────────────────┘
-```
+Aurora Banking System:
 
-### 📊 Database Schema
+- Development Mode (Default)
+	- H2 In-Memory Database
+	- Rapid Development
+	- Zero Setup Required
+	- Auto Schema Creation
+- Production Mode (Optional)
+	- PostgreSQL Persistent
+	- Production Grade
+	- Banking Compliance
+	- ACID Transactions
+
+Shared Components:
+
+- MongoDB (Event Store)
+- Redis (Cache)
+- Kafka (Streaming)
+- Grafana (Monitoring)
+
+### Database Schema
 
 PostgreSQL utiliza o schema `banking` com:
 
@@ -59,39 +63,39 @@ PostgreSQL utiliza o schema `banking` com:
 - **transaction_history**: Trilha de auditoria completa
 
 #### Funcionalidades Banking-Grade:
-- ✅ Constraints de integridade referencial
-- ✅ Triggers para consistência de saldo
-- ✅ Indexes otimizados para performance
-- ✅ Views para relatórios gerenciais
-- ✅ Funções PL/pgSQL para regras de negócio
+- Constraints de integridade referencial
+- Triggers para consistência de saldo
+- Indexes otimizados para performance
+- Views para relatórios gerenciais
+- Funções PL/pgSQL para regras de negócio
 
-### 🔧 Configurações por Environment
+### Configurações por Environment
 
 | Configuração | H2 (Default) | PostgreSQL (Production) |
 |-------------|--------------|-------------------------|
-| **Database** | In-Memory | Persistent Disk |
-| **DDL Mode** | create-drop | validate |
-| **Connection Pool** | Basic | HikariCP Optimized |
-| **Schema Management** | Auto | Manual/Flyway |
-| **Performance** | Development | Production Tuned |
-| **Data Persistence** | Lost on restart | Permanent |
+| Database | In-Memory | Persistent Disk |
+| DDL Mode | create-drop | validate |
+| Connection Pool | Basic | HikariCP Optimized |
+| Schema Management | Auto | Manual/Flyway |
+| Performance | Development | Production Tuned |
+| Data Persistence | Lost on restart | Permanent |
 
-### 🛡️ Security & Compliance
+### Security & Compliance
 
 #### PCI DSS Compliance:
-- 🔒 JWT secrets 512-bit (64 bytes)
-- 🔒 Encrypted password storage
-- 🔒 Audit trail completo
-- 🔒 No sensitive data in logs
+- JWT secrets 512-bit (64 bytes)
+- Encrypted password storage
+- Audit trail completo
+- No sensitive data in logs
 
 #### LGPD/GDPR Ready:
-- 📋 Data masking functions
-- 📋 Retention policies
-- 📋 Right to be forgotten support
+- Data masking functions
+- Retention policies
+- [PLANNED] Right to be forgotten support
 
-### 🎯 Migration Strategy
+### Migration Strategy
 
-#### Etapa 1: Desenvolvimento (Atual)
+#### Stage 1: Development (Current)
 ```bash
 # Usar H2 para desenvolvimento rápido
 mvn spring-boot:run
@@ -110,16 +114,16 @@ SPRING_PROFILES_ACTIVE=postgres mvn spring-boot:run
 docker compose --profile production up -d
 ```
 
-### 📈 Performance Benchmarks
+### Performance Benchmarks
 
 | Operação | H2 Performance | PostgreSQL Performance |
 |----------|---------------|----------------------|
-| **Insert** | ~1ms | ~2-3ms |
-| **Select** | ~0.5ms | ~1-2ms |
-| **Complex Query** | ~2ms | ~3-5ms |
-| **Concurrent Users** | 10-50 | 100-1000+ |
+| Insert | ~1ms | ~2-3ms |
+| Select | ~0.5ms | ~1-2ms |
+| Complex Query | ~2ms | ~3-5ms |
+| Concurrent Users | 10-50 | 100-1000+ |
 
-### 🔍 Monitoring & Observability
+### Monitoring & Observability
 
 #### PostgreSQL Metrics (Prometheus):
 - Connection pool status
@@ -136,7 +140,7 @@ curl http://localhost:8080/actuator/health
 docker exec aurora-postgres pg_isready -U aurora
 ```
 
-### 🚨 Troubleshooting
+### Troubleshooting
 
 #### Problema: PostgreSQL não inicia
 ```bash
@@ -156,7 +160,7 @@ docker ps | grep postgres
 telnet localhost 5432
 ```
 
-### 💡 Best Practices
+### Best Practices
 
 #### Development:
 1. Use H2 para desenvolvimento rápido
@@ -169,14 +173,14 @@ telnet localhost 5432
 3. Monitorar performance queries
 4. Implementar connection pooling
 
-### 🎯 Next Steps
+### Next Steps
 
-1. **Flyway Migration**: Versioning automático do schema
-2. **Read Replicas**: Scale horizontal para queries
+1. **Flyway Migration**: Automatic schema versioning
+2. **Read Replicas**: Horizontal scaling for queries
 3. **Partitioning**: Performance para grandes volumes
 4. **Backup Strategy**: Continuous archiving + PITR
 
 ---
 
-**Martin Fowler Profile Pattern**: *"Configuration should adapt to environment, not the reverse"*  
-**Michael Stonebraker Database**: *"Right tool for the right job, seamlessly integrated"*
+Profile-based configuration: "Configuration should adapt to environment, not the reverse"  
+Database guideline: "Right tool for the right job, seamlessly integrated"

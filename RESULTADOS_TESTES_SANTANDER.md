@@ -170,10 +170,10 @@ Event Sourcing para rastreabilidade
 ### **Estrutura de Pacotes**
 ```
 com.aurora.ledger/
-├── application/     # Serviços de aplicação
-├── domain/         # Entidades e value objects
-├── infrastructure/ # Implementações técnicas
-└── integration/    # Testes de integração
+|-- application/     # Serviços de aplicação
+|-- domain/         # Entidades e value objects
+|-- infrastructure/ # Implementações técnicas
+`-- integration/    # Testes de integração
 ```
 
 ---

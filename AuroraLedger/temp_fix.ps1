@@ -1,4 +1,4 @@
-# Fix compilation script - Clean Code approach by Tricortex
+# Build maintenance helper script
 Write-Host "Starting systematic code cleanup..." -ForegroundColor Green
 
 # Navigate to project directory
