@@ -20,7 +20,7 @@ Aurora Ledger is an enterprise-grade banking platform implementing CQRS (Command
 - **Scalability**: Horizontal scaling with stateless design
 - **Security**: JWT authentication, BCrypt encryption, PCI compliance
 
-## 🏛️ Architecture Diagram
+## Architecture Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -87,7 +87,7 @@ Aurora Ledger is an enterprise-grade banking platform implementing CQRS (Command
 - **JaCoCo**: Code coverage analysis
 - **SonarQube**: Code quality and security analysis
 
-## 🎨 Design Patterns
+## Design Patterns
 
 ### Domain-Driven Design (DDD)
 ```java

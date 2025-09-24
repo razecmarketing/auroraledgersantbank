@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master", "main", "develop", "authenticity-*" ]
+  pull_request:
+    branches: [ "master", "main", "develop" ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Build & Test
+        working-directory: ./AuroraLedger
+        run: mvn -B -q clean verify jacoco:report
+
+      - name: Publish JaCoCo Artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: AuroraLedger/target/site/jacoco
+
+      - name: Extract Coverage Percentage
+        id: coverage
+        shell: bash
+        run: |
+          LINE_COV=$(grep -o 'line-rate="[0-9.]*"' AuroraLedger/target/site/jacoco/jacoco.xml | head -1 | sed 's/line-rate="//' | sed 's/"//')
+          # Multiply by 100 using awk for portable floating point formatting
+          PCT=$(awk -v v="$LINE_COV" 'BEGIN { printf "%.2f", v*100 }')
+          echo "coverage=$PCT" >> $GITHUB_OUTPUT
+
+      - name: Create Coverage Badge JSON
+        run: |
+          mkdir -p coverage-badge
+          echo '{"schemaVersion":1,"label":"coverage","message":"'${{ steps.coverage.outputs.coverage }}'%","color":"blue"}' > coverage-badge/coverage.json
+
+      - name: Upload Coverage Badge
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-badge
+          path: coverage-badge/coverage.json
+
+      - name: Summary
+        shell: bash
+        run: |
+          echo "Line Coverage: ${{ steps.coverage.outputs.coverage }}%" >> $GITHUB_STEP_SUMMARY
