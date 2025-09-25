@@ -8,7 +8,7 @@
 
 **Aurora Ledger** represents a modern banking system built with clean architecture principles, following multinational banking standards. Implements CQRS (Command Query Responsibility Segregation), Event Sourcing, comprehensive observability, and full banking compliance frameworks.
 
-### 🎯 FUNCIONALIDADES DEMONSTRADAS
+### FUNCIONALIDADES DEMONSTRADAS
 
 **Cadastro e Autenticação JWT**  
 **Depósitos com Precisão Monetária**  
@@ -447,4 +447,4 @@ docker compose up -d
 
 **Sistema desenvolvido seguindo padrões bancários internacionais, pronto para produção e escala empresarial.**
 
-🏦 **Aurora Ledger Santander** - *Excelência em Tecnologia Bancária*
+ **Aurora Ledger Santander** - *Excelência em Tecnologia Bancária*
